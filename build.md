@@ -1,5 +1,5 @@
-proton-vpn-morphe (arm64-v8a): 5.17.72.0  
-proton-vpn-morphe (arm-v7a): 5.17.72.0  
+messenger-morphe (arm64-v8a): 552.0.0.44.65  
+messenger-morphe (arm-v7a): 552.0.0.44.65  
 
 **Notes:**  
 • Install [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) or [MicroG](https://github.com/ReVanced/GmsCore/releases/latest), required for Google APKs.  
@@ -7,5 +7,5 @@ proton-vpn-morphe (arm-v7a): 5.17.72.0
 
 [GitHub](https://github.com/nullcpy/rvb) | [Group](https://t.me/rvb27) | [Donate](https://fahim-ahmed05.github.io/donate) | [Website](https://nullcpy.github.io)
   
-Patches: hoo-dles/patches-1.29.0-dev.2.mpp  
-[Changelog](https://github.com/hoo-dles/morphe-patches/releases/tag/v1.29.0-dev.2)  
+Patches: RookieEnough/patches-1.0.3.mpp  
+[Changelog](https://github.com/RookieEnough/De-ReVanced/releases/tag/v1.0.3)  
