@@ -1,6 +1,6 @@
 {
-  "version": "v20.47.62 (patches 1.24.0.mpp)",
-  "versionCode": 189,
-  "zipUrl": "https://github.com/nullcpy/rvb/releases/download/189/youtube-morphe-module-v20.47.62-arm-v7a.zip",
+  "version": "v20.47.62 (patches 1.25.0.mpp)",
+  "versionCode": 191,
+  "zipUrl": "https://github.com/nullcpy/rvb/releases/download/191/youtube-morphe-module-v20.47.62-arm-v7a.zip",
   "changelog": "https://raw.githubusercontent.com/nullcpy/rvb/update/build.md"
 }
