@@ -666,7 +666,10 @@ function buildAppCatalog(releases, query = '') {
 
                             // 2. If BOTH are archives, sort them nicely by version number (highest first)
                             if (a.isArchive && b.isArchive) {
-                                return b.version.localeCompare(a.version, undefined, { numeric: true, sensitivity: 'base' });
+                                const versionComparison = b.version.localeCompare(a.version, undefined, { numeric: true, sensitivity: 'base' });
+                                if (versionComparison !== 0) return versionComparison;
+                                // If same version, sort by date (newest first)
+                                return new Date(b.publishedAt) - new Date(a.publishedAt);
                             }
 
                             // 3. Otherwise (normal builds), just sort by date
