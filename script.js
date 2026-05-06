@@ -67,7 +67,7 @@ const CONFIG = {
         'merriamwebsterdictionary': 'com.merriamwebster',
         'messenger': 'com.facebook.orca',
         'microsoftlens': 'com.microsoft.office.officelens',
-        'moon+reader': 'com.flyersoft.moonreader',
+        'moonreader': 'com.flyersoft.moonreader',
         'novalauncher': 'com.teslacoilsw.launcher',
         'pandora': 'com.pandora.android',
         'photomath': 'com.microblink.photomath',
