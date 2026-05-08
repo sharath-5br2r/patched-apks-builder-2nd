@@ -88,7 +88,7 @@ textarea {
 
 #menuBtn,
 #themeBtn,
-#docsBtn,
+#issueBtn,
 #announcementBtn {
     background: var(--bg-secondary);
     border: 2px solid var(--border);
@@ -108,7 +108,7 @@ textarea {
 
 #menuBtn:hover,
 #themeBtn:hover,
-#docsBtn:hover,
+#issueBtn:hover,
 #announcementBtn:hover {
     transform: scale(1.1);
     border-color: var(--accent);
@@ -1284,7 +1284,7 @@ footer a:hover {
 
     #menuBtn,
     #themeBtn,
-    #docsBtn,
+    #issueBtn,
     #announcementBtn {
         width: 45px;
         height: 45px;
