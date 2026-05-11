@@ -1,5 +1,5 @@
-instagram-morphe (arm64-v8a): 426.0.0.37.68  
-instagram-morphe (arm-v7a): 426.0.0.37.68  
+tiktok-morphe (arm64-v8a): 43.8.3  
+tiktok-morphe (arm-v7a): 43.8.3  
 
 **Notes:**  
 • Install [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) or [MicroG](https://github.com/ReVanced/GmsCore/releases/latest), required for Google APKs.  
@@ -7,5 +7,8 @@ instagram-morphe (arm-v7a): 426.0.0.37.68
 
 [GitHub](https://github.com/nullcpy/rvb) | [Group](https://t.me/rvb27) | [Donate](https://fahim-ahmed05.github.io/donate) | [Website](https://nullcpy.github.io)
   
-Patches: brosssh/patches-2.6.1-dev.2.mpp  
-[Changelog](https://github.com/brosssh/morphe-patches/releases/tag/v2.6.1-dev.2)  
+Patches: Raudrobot/patches-6.1.0.rvp  
+[Changelog](https://github.com/Raudrobot/revanced-patches/releases/tag/6.1.0-patches)
+
+Patches: RookieEnough/patches-1.0.3.mpp  
+[Changelog](https://github.com/RookieEnough/De-Vanced/releases/tag/v1.0.3)  
