@@ -157,6 +157,14 @@ const tokenCache = new Map();
 document.addEventListener('DOMContentLoaded', () => {
     setupTheme();
     setupEventListeners();
+
+    // Pre-fill search from ?q= URL param
+    const urlQuery = new URLSearchParams(window.location.search).get('q');
+    if (urlQuery) {
+        searchTerm = urlQuery.toLowerCase();
+        document.getElementById('searchInput').value = urlQuery;
+    }
+
     loadReleases();
 });
 
@@ -232,6 +240,16 @@ function setupEventListeners() {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             searchTerm = e.target.value.toLowerCase();
+
+            // Sync ?q= in the URL so results are shareable
+            const url = new URL(window.location);
+            if (searchTerm) {
+                url.searchParams.set('q', e.target.value);
+            } else {
+                url.searchParams.delete('q');
+            }
+            history.replaceState(null, '', url);
+
             filterAndRenderReleases();
         }, 250);
     });
