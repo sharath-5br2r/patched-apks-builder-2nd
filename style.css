@@ -244,9 +244,13 @@ main {
     gap: 15px;
 }
 
+.search-input-wrap {
+    position: relative;
+}
+
 #searchInput {
     width: 100%;
-    padding: 14px 20px;
+    padding: 14px 44px 14px 20px;
     background: var(--bg-secondary);
     border: 2px solid var(--border);
     border-radius: 8px;
@@ -260,6 +264,38 @@ main {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
 }
+
+#searchClearBtn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.search-input-wrap.has-value #searchClearBtn {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+}
+
+#searchClearBtn:hover {
+    background: var(--accent-danger);
+    color: #fff;
+}
+
 
 .filter-buttons {
     display: flex;

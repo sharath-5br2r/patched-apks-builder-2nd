@@ -162,11 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlQuery = new URLSearchParams(window.location.search).get('q');
     if (urlQuery) {
         searchTerm = urlQuery.toLowerCase();
-        document.getElementById('searchInput').value = urlQuery;
+        const searchInput = document.getElementById('searchInput');
+        searchInput.value = urlQuery;
+        searchInput.closest('.search-input-wrap').classList.add('has-value');
     }
 
     loadReleases();
 });
+
 
 // Theme Management
 function setupTheme() {
@@ -235,8 +238,15 @@ function setupEventListeners() {
 
     // 1. Debounced Search Input
     const searchInput = document.getElementById('searchInput');
+    const searchWrap = searchInput.closest('.search-input-wrap');
+    const searchClearBtn = document.getElementById('searchClearBtn');
+
+    const syncClearBtn = () => {
+        searchWrap.classList.toggle('has-value', searchInput.value.length > 0);
+    };
 
     searchInput.addEventListener('input', (e) => {
+        syncClearBtn();
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             searchTerm = e.target.value.toLowerCase();
@@ -254,6 +264,15 @@ function setupEventListeners() {
         }, 250);
     });
 
+    searchClearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchTerm = '';
+        syncClearBtn();
+        history.replaceState(null, '', location.pathname);
+        filterAndRenderReleases();
+        searchInput.focus();
+    });
+
     searchInput.addEventListener('focus', (e) => {
         if (window.innerWidth <= 768) {
             const searchBox = e.target.closest('.search-box') || e.target;
@@ -261,6 +280,7 @@ function setupEventListeners() {
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
     });
+
 
     const appFilterButtons = document.getElementById('appFilterButtons');
     if (appFilterButtons) {
