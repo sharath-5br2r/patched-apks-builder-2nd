@@ -1,6 +1,5 @@
-twitter-morphe (arm64-v8a): 11.82.0-beta.1  
-twitter-morphe-materialu (arm64-v8a): 11.82.0-beta.1  
-instagram-morphe-piko (arm64-v8a): 426.0.0.37.68  
+autosync-morphe (arm64-v8a): 7.5.10  
+autosync-morphe (arm-v7a): 7.5.10  
 
 **Notes:**  
 • Install [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) or [MicroG](https://github.com/ReVanced/GmsCore/releases/latest), required for Google APKs.  
@@ -8,5 +7,5 @@ instagram-morphe-piko (arm64-v8a): 426.0.0.37.68
 
 [GitHub](https://github.com/nullcpy/rvb) | [Group](https://t.me/rvb27) | [Donate](https://fahim-ahmed05.github.io/donate) | [Website](https://nullcpy.github.io)
   
-Patches: crimera/patches-3.3.0-dev.8.mpp  
-[Changelog](https://github.com/crimera/piko/releases/tag/v3.3.0-dev.8)  
+Patches: BholeyKaBhakt/patches.mpp  
+[Changelog](https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/v2.0.1-dev.1)  
