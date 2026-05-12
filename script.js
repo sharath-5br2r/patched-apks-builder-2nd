@@ -44,6 +44,7 @@ const CONFIG = {
 
     // Map app slugs to true Android Package IDs for Obtainium
     // Keys MUST be the fully normalized appName (lowercase, no spaces, no symbols)
+    // app + patch + variant, app + patch + default, app + variant, app + default, app only
     appIds: {
         'adguard': 'com.adguard.android.contentblocker',
         'adobelightroom': 'com.adobe.lrmobile',
