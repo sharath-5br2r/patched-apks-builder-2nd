@@ -74,6 +74,7 @@ const CONFIG = {
         'messenger': 'com.facebook.orca',
         'microsoftlens': 'com.microsoft.office.officelens',
         'moonreader': 'com.flyersoft.moonreader',
+        'niagaralauncher': 'bitpit.launcher',
         'novalauncher': 'com.teslacoilsw.launcher',
         'pandora': 'com.pandora.android',
         'photomath': 'com.microblink.photomath',
