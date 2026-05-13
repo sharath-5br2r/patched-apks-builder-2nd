@@ -165,8 +165,7 @@ let themeMode = 'system';
 let currentVisibleCount = 0;
 const RENDER_CHUNK_SIZE = 50;
 
-const SHARED_APP_WORD_MIN_COUNT = 3;
-const SHARED_APP_WORD_FALLBACK_COUNT = 2;
+const SHARED_APP_WORD_MIN_COUNT = 2;
 
 // Caches for Memoization
 const parseCache = new Map();
@@ -890,11 +889,8 @@ function getDynamicAppFilters(apps) {
     });
 
     const allWordEntries = Array.from(wordToAppKeys.entries());
-    const preferredEntries = allWordEntries.filter(([, appKeys]) => appKeys.size >= SHARED_APP_WORD_MIN_COUNT);
-    const fallbackEntries = allWordEntries.filter(([, appKeys]) => appKeys.size >= SHARED_APP_WORD_FALLBACK_COUNT);
-    const selectedEntries = preferredEntries.length > 0 ? preferredEntries : fallbackEntries;
-
-    return selectedEntries
+    return allWordEntries
+        .filter(([, appKeys]) => appKeys.size >= SHARED_APP_WORD_MIN_COUNT)
         .sort((a, b) => a[0].localeCompare(b[0])) // Strictly alphabetical sort
         .map(([word]) => ({
             key: `word-${word}`,
