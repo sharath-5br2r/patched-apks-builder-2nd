@@ -49,6 +49,7 @@ const CONFIG = {
         'calcnote': 'com.appumstudios.calcnote',
         'camscanner': 'com.intsig.camscanner',
         'cricbuzz': 'com.cricbuzz.android',
+        'cryptomator': 'org.cryptomator',
         'documentscanner': 'com.cv.docscanner',
         'duolingo': 'com.duolingo',
         'eyeconcalleridspamblock': 'com.eyecon.global',
