@@ -1,5 +1,7 @@
-autosync-morphe (arm64-v8a): 7.5.10  
-autosync-morphe (arm-v7a): 7.5.10  
+automate-morphe (arm64-v8a): 1.51.1  
+automate-morphe (arm-v7a): 1.51.1  
+speedtest-morphe (arm64-v8a): 7.0.3  
+speedtest-morphe (arm-v7a): 7.0.3  
 
 **Notes:**  
 • Install [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) or [MicroG](https://github.com/ReVanced/GmsCore/releases/latest), required for Google APKs.  
