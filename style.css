@@ -661,6 +661,20 @@ body.light-mode .filter-btn.active {
     flex-shrink: 0;
 }
 
+.patch-downloads-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(139, 148, 158, 0.15);
+    border: 1px solid rgba(139, 148, 158, 0.3);
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
 .patch-open-box.stable .patch-meta-label {
     color: var(--accent-success);
 }

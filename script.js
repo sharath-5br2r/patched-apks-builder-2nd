@@ -959,6 +959,16 @@ function toFilterLabel(value) {
     return value.replace(/\b[a-z]/g, char => char.toUpperCase());
 }
 
+function getPatchTotalDownloads(patch) {
+    let total = 0;
+    (patch.builds || []).forEach(b => {
+        (b.assets || []).forEach(asset => {
+            total += (asset.download_count || 0);
+        });
+    });
+    return total;
+}
+
 function createPatchMarkup(app, patch) {
     const buildCount = patch.builds.length;
     const allMeta = [patch.latestStable, patch.latestBeta, patch.latestVariant].filter(Boolean);
@@ -1029,12 +1039,17 @@ function createPatchMarkup(app, patch) {
 
     const buildCountBadge = `<span class="patch-build-count">${buildCount} build${buildCount > 1 ? 's' : ''}</span>`;
 
+    const patchDownloads = getPatchTotalDownloads(patch);
+    const dlIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 2px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
+    const dlBadge = patchDownloads > 0 ? `<span class="patch-downloads-count" title="${formatCompactNumber(patchDownloads)} Downloads">${dlIcon}${formatCompactNumber(patchDownloads)}</span>` : '';
+
     return `
         <div class="patch-entry">
             <span class="patch-trigger-left">
                 <span class="patch-chip-group">
                     <span class="patch-chip">${escapeHtml(patch.patchName)}</span>
                     ${buildCountBadge}
+                    ${dlBadge}
                 </span>
                 <span class="patch-meta-grid">
                     ${patchMetaBoxes.join('')}
