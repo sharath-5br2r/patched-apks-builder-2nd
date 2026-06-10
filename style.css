@@ -39,9 +39,20 @@ html {
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Roboto",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        sans-serif;
     line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
 }
 
 button,
@@ -197,7 +208,10 @@ header .subtitle {
     font-weight: 500;
     width: fit-content;
     margin-top: 16px;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        border-color 0.2s;
 }
 
 .update-pill svg {
@@ -282,7 +296,11 @@ main {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
 .search-input-wrap.has-value #searchClearBtn {
@@ -295,7 +313,6 @@ main {
     background: var(--accent-danger);
     color: #fff;
 }
-
 
 .filter-buttons {
     display: flex;
@@ -373,12 +390,19 @@ body.light-mode .filter-btn.active {
 
 .build-card {
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0)
+        ),
         var(--bg-secondary);
     border: 1px solid color-mix(in srgb, var(--border) 80%, var(--accent) 20%);
     border-radius: 16px;
     padding: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
@@ -434,7 +458,6 @@ body.light-mode .filter-btn.active {
     white-space: nowrap;
 }
 
-
 .patches-title {
     margin-top: 4px;
     margin-bottom: 8px;
@@ -482,13 +505,19 @@ body.light-mode .filter-btn.active {
     text-decoration: none;
     font-size: 0.76rem;
     font-weight: 700;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 /* Info notice (blue) — e.g. microg-note */
 .microg-note {
     border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--border) 55%);
-    background: linear-gradient(90deg, rgba(88, 166, 255, 0.14), rgba(88, 166, 255, 0.04));
+    background: linear-gradient(
+        90deg,
+        rgba(88, 166, 255, 0.14),
+        rgba(88, 166, 255, 0.04)
+    );
 }
 
 .microg-note .app-notice-title {
@@ -507,8 +536,13 @@ body.light-mode .filter-btn.active {
 
 /* Warning notice (yellow) — e.g. twitter-login-note */
 .twitter-login-note {
-    border: 1px solid color-mix(in srgb, var(--accent-warning) 55%, var(--border) 45%);
-    background: linear-gradient(90deg, rgba(210, 153, 34, 0.16), rgba(210, 153, 34, 0.05));
+    border: 1px solid
+        color-mix(in srgb, var(--accent-warning) 55%, var(--border) 45%);
+    background: linear-gradient(
+        90deg,
+        rgba(210, 153, 34, 0.16),
+        rgba(210, 153, 34, 0.05)
+    );
 }
 
 .twitter-login-note .app-notice-title {
@@ -516,7 +550,8 @@ body.light-mode .filter-btn.active {
 }
 
 .twitter-login-note .app-notice-links a {
-    border: 1px solid color-mix(in srgb, var(--accent-warning) 70%, var(--border) 30%);
+    border: 1px solid
+        color-mix(in srgb, var(--accent-warning) 70%, var(--border) 30%);
     color: var(--accent-warning);
 }
 
@@ -533,7 +568,11 @@ body.light-mode .filter-btn.active {
     width: 100%;
     border: 1px solid color-mix(in srgb, var(--border) 85%, var(--accent) 15%);
     border-radius: 12px;
-    background: linear-gradient(180deg, rgba(88, 166, 255, 0.06), rgba(88, 166, 255, 0.01));
+    background: linear-gradient(
+        180deg,
+        rgba(88, 166, 255, 0.06),
+        rgba(88, 166, 255, 0.01)
+    );
     margin-bottom: 10px;
     padding: 12px;
     display: flex;
@@ -613,7 +652,10 @@ body.light-mode .filter-btn.active {
     row-gap: 4px;
     padding: 8px 10px;
     cursor: pointer;
-    transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+    transition:
+        transform 0.15s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .patch-open-box:hover {
@@ -864,7 +906,7 @@ body.modal-open {
 
 .instruction-code code {
     flex: 1;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: "JetBrains Mono", "Courier New", monospace;
     font-size: 0.85rem;
     color: var(--accent);
     overflow: auto;
@@ -930,7 +972,7 @@ body.light-mode .obtainium-instructions a.obtainium-add-btn {
 
 .example code {
     display: block;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: "JetBrains Mono", "Courier New", monospace;
     font-size: 0.8rem;
     color: var(--text-secondary);
     background: var(--bg-tertiary);
@@ -949,7 +991,7 @@ body.light-mode .obtainium-instructions a.obtainium-add-btn {
 
 .code-with-copy code {
     flex: 1;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: "JetBrains Mono", "Courier New", monospace;
     font-size: 0.8rem;
     color: var(--text-secondary);
     background: var(--bg-tertiary);
@@ -1097,7 +1139,10 @@ body.light-mode .release-badge.archive {
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
     text-decoration: none;
     text-align: left;
     word-break: break-word;
@@ -1293,8 +1338,14 @@ footer a:hover {
 
     .modal-card {
         margin: auto 0;
-        max-height: calc(100vh - max(8px, env(safe-area-inset-top, 0px)) - max(8px, env(safe-area-inset-bottom, 0px)) - 16px);
-        max-height: calc(100dvh - max(8px, env(safe-area-inset-top, 0px)) - max(8px, env(safe-area-inset-bottom, 0px)) - 16px);
+        max-height: calc(
+            100vh - max(8px, env(safe-area-inset-top, 0px)) -
+                max(8px, env(safe-area-inset-bottom, 0px)) - 16px
+        );
+        max-height: calc(
+            100dvh - max(8px, env(safe-area-inset-top, 0px)) -
+                max(8px, env(safe-area-inset-bottom, 0px)) - 16px
+        );
     }
 
     .modal-build-header {
