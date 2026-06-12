@@ -1,6 +1,6 @@
 {
-  "version": "v2.5.1.1 (patches 1.35.0.mpp)",
-  "versionCode": 324,
-  "zipUrl": "https://github.com/nullcpy/rvb/releases/download/324/xrecorder-morphe-module-v2.5.1.1-arm-v7a.zip",
+  "version": "v2.5.1.1 (patches 1.35.1.mpp)",
+  "versionCode": 341,
+  "zipUrl": "https://github.com/nullcpy/rvb/releases/download/341/xrecorder-morphe-module-v2.5.1.1-arm-v7a.zip",
   "changelog": "https://raw.githubusercontent.com/nullcpy/rvb/update/build.md"
 }
