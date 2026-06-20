@@ -1,7 +1,5 @@
-twitter-morphe (arm64-v8a): 12.0.0-release.0  
-twitter-morphe (arm-v7a): 12.0.0-release.0  
-twitter-morphe-materialu (arm64-v8a): 12.0.0-release.0  
-twitter-morphe-materialu (arm-v7a): 12.0.0-release.0  
+google-news-morphe (arm64-v8a): 5.161.0.931240252  
+google-news-morphe (arm-v7a): 5.161.0.931240252  
 
 **Notes:**  
 • Install [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) or [MicroG](https://github.com/ReVanced/GmsCore/releases/latest), required for Google APKs.  
@@ -10,8 +8,5 @@ twitter-morphe-materialu (arm-v7a): 12.0.0-release.0
 [GitHub](https://github.com/nullcpy/rvb) | [Group](https://t.me/rvb27) | [Donate](https://fahim-ahmed05.github.io/donate) | [Website](https://nullcpy.github.io)
   
 CLI: MorpheApp/morphe-cli-1.9.1-all.jar  
-Patches: inotia00/patches-1.6.2.mpp  
-[Changelog](https://gitlab.com/inotia00/x-shim/-/releases/v1.6.2)
-
-Patches: crimera/patches-3.6.0.mpp  
-[Changelog](https://github.com/crimera/piko/releases/tag/v3.6.0)  
+Patches: docbt/patches-1.9.0.mpp  
+[Changelog](https://github.com/docbt/patched-up/releases/tag/v1.9.0)  
