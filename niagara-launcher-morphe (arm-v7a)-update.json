@@ -1,6 +1,6 @@
 {
-  "version": "v1.16.7 (patches 1.36.0.mpp)",
-  "versionCode": 347,
-  "zipUrl": "https://github.com/nullcpy/rvb/releases/download/347/niagara-launcher-morphe-module-v1.16.7-arm-v7a.zip",
+  "version": "v1.16.7 (patches 1.36.1.mpp)",
+  "versionCode": 383,
+  "zipUrl": "https://github.com/nullcpy/rvb/releases/download/383/niagara-launcher-morphe-module-v1.16.7-arm-v7a.zip",
   "changelog": "https://raw.githubusercontent.com/nullcpy/rvb/update/build.md"
 }
