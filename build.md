@@ -1,7 +1,9 @@
-battery-guru-morphe (arm64-v8a): 2.4.8.1  
-battery-guru-morphe (arm-v7a): 2.4.8.1  
-money-manager-morphe (arm64-v8a): 4.11.1GF  
-money-manager-morphe (arm-v7a): 4.11.1GF  
+youtube-morphe (arm64-v8a): 20.51.39  
+youtube-morphe (arm-v7a): 20.51.39  
+youtube-music-morphe (arm64-v8a): 9.15.51  
+youtube-music-morphe (arm-v7a): 9.15.51  
+reddit-morphe (arm64-v8a): 2026.14.0  
+reddit-morphe (arm-v7a): 2026.14.0  
 
 **Notes:**  
 • Install [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) or [MicroG](https://github.com/ReVanced/GmsCore/releases/latest), required for Google APKs.  
@@ -10,5 +12,5 @@ money-manager-morphe (arm-v7a): 4.11.1GF
 [GitHub](https://github.com/nullcpy/rvb) | [Group](https://t.me/rvb27) | [Donate](https://fahim-ahmed05.github.io/donate) | [Website](https://nullcpy.github.io)
   
 CLI: MorpheApp/morphe-cli-1.9.1-all.jar  
-Patches: arandomhooman/patches-1.31.0.mpp  
-[Changelog](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.0)  
+Patches: MorpheApp/patches-1.33.0-dev.1.mpp  
+[Changelog](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.33.0-dev.1)  
