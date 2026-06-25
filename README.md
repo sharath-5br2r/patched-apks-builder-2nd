@@ -6,7 +6,7 @@
 
 <p align="center"><a href="https://github.com/nullcpy/nullcpy.github.io"><img src="https://img.shields.io/github/stars/nullcpy/nullcpy.github.io?label=Website%20Stars&logo=github&style=social"></a> <a href="https://github.com/nullcpy/rvb"><img src="https://img.shields.io/github/stars/nullcpy/rvb?label=Builder%20Stars&logo=github&style=social"></a></p>
 
-<p align="center"><a href="https://nullcpy.github.io"><img src="https://visitor-badge.laobi.icu/badge?page_id=nullcpy.github.io&left_text=Website%20Visitors&right_color=%231283c3&format=true&query_only=true" alt="visitor badge"/></a> <a href="https://github.com/nullcpy/nullcpy.github.io/graphs/traffic"><img src="https://visitor-badge.laobi.icu/badge?page_id=nullcpy.nullcpy.github.io&left_text=GitHub%20Visitors&format=true" alt="visitor badge"></a> </p>
+<p align="center"><a href="https://nullcpy.github.io"><img src="https://visitor-badge.laobi.icu/badge?page_id=nullcpy.github.io&left_text=Website%20Visitors&right_color=%231283c3&format=true&query_only=true"></a> <a href="https://github.com/nullcpy/rvb"><img src="https://visitor-badge.laobi.icu/badge?page_id=nullcpy.rvb&left_text=GitHub%20Visitors&format=true"></a> </p>
 
 <p align="center"><a href="https://github.com/nullcpy/rvb/issues/new/choose"><img src="https://img.shields.io/badge/Report%20/%20Request-405771?style=flat&logo=github" alt="Report issues or request features"></a></p>
 
