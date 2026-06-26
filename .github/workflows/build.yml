@@ -64,7 +64,9 @@ jobs:
       - name: Write Experimental config
         if: ${{ steps.context.outputs.CONFIG_FILE == 'configs/exp.toml' }}
         run: bash scripts/morphe-experimetal.sh
-        
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Build modules and apks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
