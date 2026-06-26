@@ -93,7 +93,7 @@ const CONFIG = {
   // Keys MUST be the fully normalized appName (lowercase, no spaces, no symbols)
   // app + patch + variant, app + patch + default, app + variant, app + default, app only
   appIds: {
-    warp: "com.cloudflare.onedotonedotonedotone",
+    "1111warp": "com.cloudflare.onedotonedotonedotone",
     adguard: "com.adguard.android",
     adobelightroom: "com.adobe.lrmobile",
     adobephotoshopmix: "com.adobe.psmobile",
