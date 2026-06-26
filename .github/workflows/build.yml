@@ -57,7 +57,6 @@ jobs:
         run: bash .github/scripts/build_resolve_version.sh
       
       - name: Extract keystore
-        if: ${{ steps.context.outputs.KEYSTORE_FILE != '' }}
         run: |
           echo "${{ secrets.KEYSTORE }}" | base64 -d > ks.keystore
           echo "${{ secrets.KEYSTORE_P12 }}" | base64 -d > ks-p12.keystore
