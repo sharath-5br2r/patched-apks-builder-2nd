@@ -1,0 +1,25 @@
+patches-version = "dev"
+
+[youtube-morphe]
+enabled = true
+app-name = "youtube"
+rv-brand = "morphe"
+build-mode = "both"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
+version = "21.25.523"
+
+#archive-dlurl = "https://archive.org/download/geologically/apks/com.google.android.youtube"
+[youtube-music-morphe]
+enabled = true
+app-name = "youtube-music"
+rv-brand = "morphe"
+build-mode = "both"
+arch = "all"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music"
+version = "9.25.50"
