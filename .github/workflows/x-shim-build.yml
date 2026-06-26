@@ -33,18 +33,17 @@ jobs:
           fetch-depth: 0
           submodules: true
 
-      - name: Resolve build context
-        id: context
-        run: bash .github/scripts/build_resolve_context.sh "${{ inputs.config_file }}"
+#      - name: Resolve build context
+#        id: context
+#       run: bash .github/scripts/build_resolve_context.sh "${{ inputs.config_file }}"
 
-      - name: Resolve version code
-        id: version
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash .github/scripts/build_resolve_version.sh
+#      - name: Resolve version code
+#        id: version
+#        env:
+#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: bash .github/scripts/build_resolve_version.sh
       
       - name: Extract keystore
-        if: ${{ steps.context.outputs.KEYSTORE_FILE != '' }}
         run: |
           echo "${{ secrets.KEYSTORE }}" | base64 -d > ks.keystore
           echo "${{ secrets.KEYSTORE_P12 }}" | base64 -d > ks-p12.keystore
@@ -75,14 +74,6 @@ jobs:
 #          file_pattern: README.md
 #          commit_message: "Update README for Build No. ${{ steps.version.outputs.NEXT_VER_CODE }} [skip ci]"
 
-      - name: Upload to release (Archive)
-        uses: softprops/action-gh-release@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./build/*
-          tag_name: ${{ steps.context.outputs.ARCHIVE_TAG }}
-          overwrite_files: true
-
       - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
@@ -91,28 +82,4 @@ jobs:
           files: ./build/*
           name: X Shim
           tag_name: x-shim
-
-#      - name: Notify telegram
-#        env:
-#          TG_TOKEN: ${{ secrets.TG_TOKEN }}
-#          TG_THREAD_ID: ${{ steps.context.outputs.TG_THREAD_ID }}
-#          TITLE_SUFFIX: ${{ steps.context.outputs.TITLE_SUFFIX }}
-#          NEXT_VER_CODE: ${{ steps.version.outputs.NEXT_VER_CODE }}
-#          GITHUB_SERVER_URL: ${{ github.server_url }}
-#          GITHUB_REPOSITORY: ${{ github.repository }}
-#        run: bash .github/scripts/build_notify_telegram.sh
-
-      - name: Update changelog and module update files
-        env:
-          NEXT_VER_CODE: ${{ steps.version.outputs.NEXT_VER_CODE }}
-          GITHUB_SERVER_URL: ${{ github.server_url }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: bash .github/scripts/build_update_changelog.sh
-
-      - name: Commit updated build and module update files
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          branch: update
-          skip_checkout: true
-          file_pattern: build.md *-update.json
-          commit_message: Bump version ${{ steps.version.outputs.NEXT_VER_CODE }}
+          overwrite_files: true
