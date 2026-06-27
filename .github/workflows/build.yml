@@ -76,7 +76,8 @@ jobs:
           fi
           set -euo pipefail
           if [[ "${{ steps.context.outputs.CONFIG_FILE }}" == "custom" ]]; then
-            bash -x ./custom_patches.sh
+            mkdir build
+            bash  ./custom_patches.sh
           else
             ./build.sh "${{ steps.context.outputs.CONFIG_FILE }}"
           fi
