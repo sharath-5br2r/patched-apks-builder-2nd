@@ -69,9 +69,8 @@ jobs:
           KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
           NEXT_VER_CODE: ${{ steps.version.outputs.NEXT_VER_CODE }}
         run: |
-          ls -al
           if [[ "${{ steps.context.outputs.CONFIG_FILE }}" == "configs/exp.toml" ]]; then
-            bash ./scripts/morphe-experimental.sh
+            bash ./scripts/get_morphe_experimental.sh
           fi
           set -euo pipefail
           ./build.sh "${{ steps.context.outputs.CONFIG_FILE }}"
