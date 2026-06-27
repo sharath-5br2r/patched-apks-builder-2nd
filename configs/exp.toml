@@ -13,14 +13,27 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
 
 #archive-dlurl = "https://archive.org/download/geologically/apks/com.google.android.youtube"
-[youtube-music-morphe]
+[youtube-music-morphe-arm64-v8a]
 enabled = true
 app-name = "youtube-music"
 rv-brand = "morphe"
 build-mode = "both"
-arch = "all"
+arch = "arm64-v8a"
 version = "9.25.50"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music"
+
+[youtube-music-morphe-x86_64]
+enabled = true
+app-name = "youtube-music"
+rv-brand = "morphe"
+build-mode = "both"
+arch = "x86_64"
+version = "9.25.50"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music"
+
