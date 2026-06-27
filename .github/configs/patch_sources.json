@@ -9,68 +9,79 @@
     "repo": "RookieEnough/De-Vanced",
     "stable": "v1.0.4",
     "prerelease": "v1.0.3-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.0.4"
   },
   "anddea": {
     "repo": "anddea/revanced-patches",
     "stable": "v4.1.0",
     "prerelease": "v4.2.0-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v4.2.0-dev.1"
   },
   "morphe": {
     "repo": "MorpheApp/morphe-patches",
     "stable": "v1.32.0",
-    "prerelease": "v1.33.0-dev.2",
-    "blocked": false
+    "prerelease": "v1.33.0-dev.3",
+    "blocked": false,
+    "latest": "v1.33.0-dev.3"
   },
   "piko": {
     "repo": "crimera/piko",
     "stable": "v3.6.0",
     "prerelease": "v3.7.0-dev.9",
-    "blocked": false
+    "blocked": false,
+    "latest": "v3.7.0-dev.9"
   },
   "hoodles": {
     "repo": "hoo-dles/morphe-patches",
     "stable": "v1.37.0",
     "prerelease": "v1.38.0-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.38.0-dev.1"
   },
   "adobo": {
     "repo": "jkennethcarino/adobo",
     "stable": "v1.2.0",
     "prerelease": "v1.3.0-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.3.0-dev.1"
   },
   "rvexp": {
     "repo": "Aunali321/ReVancedExperiments",
     "stable": "v2.0.0",
     "prerelease": "v2.0.0-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v2.0.0"
   },
   "brosssh": {
     "repo": "brosssh/morphe-patches",
     "stable": "v2.8.0",
     "prerelease": "v2.8.1-dev.4",
-    "blocked": false
+    "blocked": false,
+    "latest": "v2.8.1-dev.4"
   },
   "binarymend": {
     "repo": "binarymend/morphe-patches",
     "stable": "v1.3.1",
     "prerelease": "v1.3.1-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.3.1"
   },
   "paresh": {
     "repo": "Paresh-Maheshwari/paresh-patches",
     "host": "gitlab",
     "stable": "v1.18.0",
     "prerelease": "v1.18.1-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.18.1-dev.1"
   },
   "docbt": {
     "repo": "docbt/patched-up",
     "stable": "v1.9.0",
     "prerelease": "v1.3.1-dev.2",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.9.0"
   },
   "patcheddit": {
     "enabled": false,
@@ -83,20 +94,23 @@
     "repo": "BholeyKaBhakt/revanced-patches-xtra",
     "stable": "v2.12.0",
     "prerelease": "v2.12.0-dev.1",
-    "blocked": false
+    "blocked": false,
+    "latest": "v2.12.0"
   },
   "meta": {
     "repo": "MeridianFresco/morphe-meta-patches",
     "stable": "v1.0.0",
     "prerelease": "",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.0.0"
   },
   "pixel": {
     "enabledDev": false,
     "repo": "PixelPusher247/morphe-patches",
     "stable": "v1.3.0",
     "prerelease": "",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.3.0"
   },
   "cryptomator": {
     "repo": "joganubaid/cryptomator-morphe-patches",
@@ -108,7 +122,8 @@
     "repo": "icysymmetra/tiktok-patches-for-morphe",
     "stable": "v0.3.1",
     "prerelease": "v0.2.0-dev.2",
-    "blocked": false
+    "blocked": false,
+    "latest": "v0.3.1"
   },
   "x-shim": {
     "enabled": false,
@@ -122,12 +137,14 @@
     "repo": "arandomhooman/hoomans-morphe-patches",
     "stable": "v1.31.3",
     "prerelease": "v1.19.0",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.31.3"
   },
   "rushiranpise": {
     "repo": "rushiranpise/morphe-patches",
     "stable": "v1.7.0",
     "prerelease": "v1.7.0-dev.6",
-    "blocked": false
+    "blocked": false,
+    "latest": "v1.7.0"
   }
 }
