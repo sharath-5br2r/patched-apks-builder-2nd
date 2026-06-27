@@ -15,7 +15,7 @@ uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter/"
 
 
-[gboard-morphe]
+[gboard-jsonwu1994]
 enabled = true
 app-name = "gboard"
 rv-brand = "jsonwu1994"
