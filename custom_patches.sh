@@ -70,7 +70,7 @@ winlator-pubgvn() {
     sign winlator-patched.apk ./build/winlator-pubgvn-$tag.apk
     rm -f ./build/*.idsig
     echo -e "Patched Winlator-Ludashi with com.vng.pubgmobile package name" >> build.md
-    echo -e "\"winlator-pubgvn\": { \"exts\": [\"apk\"], \"name\": \"winlator-pubgvn\",\"arch\": \"arm64-v8a\",\"patch\": \"pubgvn\", \"version\": \"$tag\"}," >> build.json
+    echo -e "\"winlator-pubgvn\": { \"exts\": [\"apk\"], \"name\": \"winlator-pubgvn\",\"arch\": \"arm64-v8a\",\"patch\": \"pubgvn\", \"version\": \"$tag\"}" >> build.json
 }
 
 amazon-alexa

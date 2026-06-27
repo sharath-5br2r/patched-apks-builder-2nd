@@ -28,7 +28,7 @@ jobs:
         id: get_tags
         run:  |
             echo "LEVILAUNCHER_TAG=$(gh release view -R 0Sombra666/LeviLaunchroidUnlocked --json tagName --jq '.tagName' )" >> $GITHUB_ENV
-            echo "GEODE_TAG=$(gh release view -R FCL-Team/Geode --json tagName --jq '.tagName' )" >> $GITHUB_ENV
+            echo "GEODE_TAG=$(gh release view -R geode-sdk/android-launcher --json tagName --jq '.tagName' )" >> $GITHUB_ENV
             echo "FCL_TAG=$(gh release view -R FCL-Team/FoldCraftLauncher --json tagName --jq '.tagName' )" >> $GITHUB_ENV
 
         env:
