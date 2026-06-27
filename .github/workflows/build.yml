@@ -60,12 +60,7 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE }}" | base64 -d > ks.keystore
           echo "${{ secrets.KEYSTORE_P12 }}" | base64 -d > ks-p12.keystore
-      - name: Write Experimental config
-        if: ${{ steps.context.outputs.CONFIG_FILE == 'configs/exp.toml' }}
-        run: bash scripts/morphe-experimetal.sh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+   
       - name: Build modules and apks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,6 +69,9 @@ jobs:
           KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
           NEXT_VER_CODE: ${{ steps.version.outputs.NEXT_VER_CODE }}
         run: |
+          if [[ "${{ steps.context.outputs.CONFIG_FILE }}" == "configs/exp.toml" ]]; then
+            bash ./scripts/morphe-experimental.sh
+          fi
           set -euo pipefail
           ./build.sh "${{ steps.context.outputs.CONFIG_FILE }}"
 
