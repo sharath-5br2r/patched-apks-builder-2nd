@@ -37,13 +37,14 @@ dolphin-sdk29() {
     _fs_get https://dolphin-emu.org/download/
     DOLPHIN_APK_URL=$(echo $html | grep -Eo 'https://dl\.dolphin-emu\.org/builds/[a-z0-9/]+/dolphin-master-[0-9]+-[0-9]+\.apk' | awk -F'[-/.]' '{v=$(NF-2); b=$(NF-1);if (v>V || (v==V && b>B)) {V=v; B=b; U=$0}} END{print U}')
     DOLPHIN_NAME=$(basename "$DOLPHIN_APK_URL" .apk)
+    DOLPHIN_VER=${DOLPHIN_NAME#*-}
     curl -L "$DOLPHIN_APK_URL" -H "Cookie: $FS_COOKIES" -H "User-Agent: $user_agent"  -o dolphin-orig.apk
     java -jar APKEditor.jar d -i dolphin-orig.apk -o dolphin-src -t xml -dex
     sed -i 's/android:targetSdkVersion="[^"]*"/android:targetSdkVersion="29"/g' dolphin-src/AndroidManifest.xml
     java -jar APKEditor.jar b -i dolphin-src -o dolphin-patched.apk
-    sign dolphin-patched.apk ./build/$DOLPHIN_NAME-signed.apk
-    echo -e "Patched $DOLPHIN_NAME with SDK 29" >> build.md
-    echo -e "\"dolphin-sdk29\": { \"exts\": [\"apk\"], \"name\": \"dolphin-sdk29\",\"arch\": \"all\",\"patch\": \"sdk29\", \"version\": \"$DOLPHIN_NAME\"}," >> build.json
+    sign dolphin-patched.apk ./build/dolphin-sdk29-$DOLPHIN_VER.apk
+    echo -e "Patched Dolphin $DOLPHIN_VER with SDK 29" >> build.md
+    echo -e "\"dolphin-sdk29\": { \"exts\": [\"apk\"], \"name\": \"dolphin-sdk29\",\"arch\": \"all\",\"patch\": \"sdk29\", \"version\": \"$DOLPHIN_VER\"}," >> build.json
     rm -f ./build/*.idsig
     }
 
@@ -55,7 +56,7 @@ eden-pubg() {
     java -jar APKEditor.jar d -i eden-orig.apk -o eden-src -t xml -dex
     sed -i 's/dev\.eden\.eden_emulator\.nightly/com.tencent.ig/g' eden-src/AndroidManifest.xml
     java -jar APKEditor.jar b -i eden-src -o eden-patched.apk
-    sign eden-patched.apk ./build/Eden-Android-pubg-$date1-$EDEN_NAME.apk
+    sign eden-patched.apk ./build/eden-pubg-$date1-$EDEN_NAME.apk
     rm -f ./build/*.idsig
     echo -e "Patched  Eden $EDEN_NAME with com.tencent.ig package name" >> build.md
     echo -e "\"eden-pubg\": { \"exts\": [\"apk\"], \"name\": \"eden-pubg\",\"arch\": \"arm64-v8a\",\"patch\": \"pubg\", \"version\": \"$EDEN_NAME\"}," >> build.json

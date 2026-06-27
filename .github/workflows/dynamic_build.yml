@@ -147,7 +147,7 @@ jobs:
       - name: Sign APK with keystore
         run: |
           APK_IN=$(find levilauncher/app/build/outputs/apk/release -name "*.apk" | head -1)
-          APK_OUT="LeviLauncherUnlocked-bgmi-$LEVILAUNCHER_TAG.apk"
+          APK_OUT="levilauncher-unlocked-bgmi-$LEVILAUNCHER_TAG.apk"
           java -cp "bcprov.jar:apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in "$APK_IN" --out "$APK_OUT"
           APK_PATH=${{github.workspace}}/geode/app/build/outputs/apk/release/app-universal-release-unsigned.apk
           java -cp "bcprov.jar:apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in $APK_PATH --out "./geode-pubgkr-$GEODE_TAG.apk"
@@ -160,7 +160,7 @@ jobs:
       - name: Generate build.md and build.json
         run: |
            echo -e "{ \"levilauncher-bgmi\": { \"exts\": [\"apk\"], \"name\": \"levilauncher-bgmi\",\"arch\": \"all\",\"patch\": \"bgmi\", \"version\": \"$LEVILAUNCHER_TAG\" }, \"geode-pubgkr\": { \"exts\": [\"apk\"], \"name\": \"geode-pubgkr\",\"arch\": \"all\",\"patch\": \"pubgkr\", \"version\": \"$GEODE_TAG\" }, \"fcl-cod\": { \"exts\": [\"apk\"], \"name\": \"fcl-cod\",\"arch\": \"all\",\"patch\": \"cod\", \"version\": \"$FCL_TAG\" } }" >> build.json
-           echo  -e "Patched and signed the following APKs:\n- LeviLauncherUnlocked-bgmi-$LEVILAUNCHER_TAG.apk\n- geode-pubgkr-$GEODE_TAG.apk\n- fcl-cod-$FCL_TAG.apk" >> build.md
+           echo  -e "Patched and signed the following APKs:\n- levilauncher-unlocked-bgmi-$LEVILAUNCHER_TAG.apk\n- geode-pubgkr-$GEODE_TAG.apk\n- fcl-cod-$FCL_TAG.apk" >> build.md
       - name: Get output
         id: get_output
         run: bash .github/scripts/build_get_output.sh
