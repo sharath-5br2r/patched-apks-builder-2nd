@@ -3,8 +3,10 @@ fing-paresh (all): 12.12.0
 gboard-jsonwu1994 (arm64-v8a): 17.0.10.880768217-release-arm64-v8a  
 github-hoo-dles (all): 1.255.0  
 instagram-piko-arm64-v8a (arm64-v8a): 435.0.0.37.76  
+instagram-piko-x86_64 (x86_64): 435.0.0.37.76  
 jiohotstar-paresh (all): 26.04.27.10  
 moonplus-reader-binarymend (all): 10.5  
+proton-vpn-paresh (all): 5.18.75.1  
 speedtest-xtra-arm64-v8a (arm64-v8a): 7.0.4  
 speedtest-xtra-x86_64 (x86_64): 7.0.4  
 symfonium-binarymend (all): 14.0.0  

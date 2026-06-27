@@ -1,6 +1,6 @@
 {
   "version": "v17.0.10.880768217-release-arm64-v8a (patches dev.3.mpp)",
-  "versionCode": 6,
-  "zipUrl": "https://github.com/sharath-5br2r/patched-apks-builder-2nd/releases/download/6/gboard-jsonwu1994-module-v17.0.10.880768217-release-arm64-v8a-arm64-v8a.zip",
+  "versionCode": 7,
+  "zipUrl": "https://github.com/sharath-5br2r/patched-apks-builder-2nd/releases/download/7/gboard-jsonwu1994-module-v17.0.10.880768217-release-arm64-v8a-arm64-v8a.zip",
   "changelog": "https://raw.githubusercontent.com/sharath-5br2r/patched-apks-builder-2nd/update/build.md"
 }
