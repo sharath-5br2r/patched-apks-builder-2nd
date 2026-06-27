@@ -463,16 +463,33 @@ Patches: [hoo-dles/patches-1.37.0.mpp](https://github.com/hoo-dles/morphe-patche
 #### [Morphe (adobo)](https://github.com/jkennethcarino/adobo)
 
 <details>
-<summary id="gboard-morphe">&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v17.1.5.887912998.release-gray?labelColor=4285F4&logo=google&logoColor=white&style=flat"></summary>
+<summary id="gboard-morphe">&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v17.0.10.880768217.release.arm64.v8a-gray?labelColor=4285F4&logo=google&logoColor=white&style=flat"></summary>
   
 <blockquote>
 
-[Release 2026-06-14](https://github.com/nullcpy/rvb/releases/tag/351)<br>
-Patches: [jkennethcarino/patches-1.2.0.mpp](https://github.com/jkennethcarino/adobo/releases/tag/v1.2.0)
-
-- Always-incognito mode
-- Enable OCR feature
-- Enable clipboard in incognito
+[Release 2026-06-27](https://github.com/sharath-5br2r/patched-apks-builder-2nd/releases/tag/5)<br>
+Patches: [jasonwu1994/patches-1.13.0-dev.3.mpp](https://github.com/jasonwu1994/Gboard-patches/releases/tag/v1.13.0-dev.3)
+- AI Writing Tools
+- Add Gboard Signature Bypass
+- Chinese Online Voice Input
+- Clipboard Enhancements
+- Clipboard Entity Extraction
+- Clipboard Item Edit
+- Custom Symbols
+- Emojis, stickers & GIFs Tab Order
+- Enable Inline Autofill Suggestions
+- Enable Undo/Redo feature
+- English QWERTY Up-Flick Uppercase
+- Grammar Checker
+- Inline Suggestions
+- Key Shape Selection
+- Latin Globe Key Ignore Interval
+- Package Rename
+- Settings Homepage Override
+- Swipeable Custom Top Row
+- Web Clipboard
+- Zhuyin Quick Traditional/Simplified Toggle
+- Zhuyin Slide Input
 </blockquote>
 </details>
 
