@@ -11,3 +11,9 @@ __pycache__/
 build.json
 .env
 *.keystore
+/APKEditor.jar
+/apksigner.jar
+/bcprov.jar
+/bc.security
+/download
+/pup

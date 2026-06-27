@@ -58,7 +58,7 @@ eden-pubg() {
     sign eden-patched.apk ./build/Eden-Android-pubg-$date1-$EDEN_NAME.apk
     rm -f ./build/*.idsig
     echo -e "Patched  Eden $EDEN_NAME with com.tencent.ig package name" >> build.md
-    echo -e '"eden-pubg": { "exts": ["apk"], "name": "eden-pubg","arch": "all","patch": "pubg", "version": "'$EDEN_NAME'"},' >> build.json
+    echo -e '"eden-pubg": { "exts": ["apk"], "name": "eden-pubg","arch": "arm64-v8a","patch": "pubg", "version": "'$EDEN_NAME'"},' >> build.json
 
 }
 
@@ -70,7 +70,7 @@ winlator-pubgvn() {
     sign winlator-patched.apk ./build/winlator-pubgvn-$tag.apk
     rm -f ./build/*.idsig
     echo -e "Patched Winlator-Ludashi with com.vng.pubgmobile package name" >> build.md
-    echo -e '"winlator-pubgvn": { "exts": ["apk"], "name": "winlator-pubgvn","arch": "all","patch": "pubgvn", "version": "'$tag'"},' >> build.json
+    echo -e '"winlator-pubgvn": { "exts": ["apk"], "name": "winlator-pubgvn","arch": "arm64-v8a","patch": "pubgvn", "version": "'$tag'"},' >> build.json
 }
 
 amazon-alexa
