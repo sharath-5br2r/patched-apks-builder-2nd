@@ -1,5 +1,6 @@
 #!/bin/bash
 source ./fiorenmas-utils.sh
+echo -e '{' > build.json
 amazon-india(){
 	get_apk "in.amazon.mShop.android.shopping" "amazon-india" "bundle"
 	java -jar APKEditor.jar m -i ./download/amazon-india.apkm -o amazon-india.apk
@@ -7,6 +8,7 @@ amazon-india(){
 	sign "./download/amazon-india.apk" ./build/amazon-india-$version.apk
     rm -f ./build/*.idsig
     echo -e "Signed amazon-india-$version.apk" >> build.md
+    echo -e '"amazon-india": { "exts": ["apk"], "name": "amazon-india","arch": "all","patch": "none", "version": "'$version'"},' >> build.json
 }
 amazon-alexa(){
     unset version
@@ -16,6 +18,7 @@ amazon-alexa(){
 	sign "./download/amazon-alexa.apk" ./build/amazon-alexa-$version.apk
     rm -f ./build/*.idsig
     echo -e "Signed amazon-alexa-$version.apk" >> build.md
+    echo -e '"amazon-alexa": { "exts": ["apk"], "name": "amazon-alexa","arch": "all","patch": "none", "version": "'$version'"},' >> build.json
 }
 revenge-discord() {
 	# Patch Revenge:
@@ -27,10 +30,10 @@ revenge-discord() {
 	java -cp "bcprov.jar:npatch.jar" -Djava.security.properties=bc.security top.nkbe.npatch.patch.NPatch ./download/discord.apk -k ks.keystore  $KEYSTORE_PASS $KEYSTORE_ALIAS $KEYSTORE_PASS -m "revenge.apk" -o ./build/}
     mv ./build/discord-*-npatched.apk "./build/discord-revenge-$version.apk"
     echo -e "Patched discord-$version.apk with revenge-xposed" >> build.md
+    echo -e '"discord-revenge": { "exts": ["apk"], "name": "discord-revenge","arch": "all","patch": "revenge-mod/revenge-xposed", "version": "'$version'"},' >> build.json
 }
 dolphin-sdk29() {
     _fs_get https://dolphin-emu.org/download/
-    DOLPHIN_LATEST=${DOLPHIN_LATEST%%.*}
     DOLPHIN_APK_URL=$(echo $html | grep -Eo 'https://dl\.dolphin-emu\.org/builds/[a-z0-9/]+/dolphin-master-[0-9]+-[0-9]+\.apk' | awk -F'[-/.]' '{v=$(NF-2); b=$(NF-1);if (v>V || (v==V && b>B)) {V=v; B=b; U=$0}} END{print U}')
     DOLPHIN_NAME=$(basename "$DOLPHIN_APK_URL" .apk)
     curl -L "$DOLPHIN_APK_URL" -H "Cookie: $FS_COOKIES" -H "User-Agent: $user_agent"  -o dolphin-orig.apk
@@ -39,6 +42,7 @@ dolphin-sdk29() {
     java -jar APKEditor.jar b -i dolphin-src -o dolphin-patched.apk
     sign dolphin-patched.apk ./build/$DOLPHIN_NAME-signed.apk
     echo -e "Patched $DOLPHIN_NAME with SDK 29" >> build.md
+    echo -e '"dolphin-sdk29": { "exts": ["apk"], "name": "dolphin-sdk29","arch": "all","patch": "sdk29", "version": "'$DOLPHIN_NAME'"},' >> build.json
     rm -f ./build/*.idsig
     }
 
@@ -52,7 +56,9 @@ eden-pubg() {
     java -jar APKEditor.jar b -i eden-src -o eden-patched.apk
     sign eden-patched.apk ./build/Eden-Android-pubg-$date1-$EDEN_NAME.apk
     rm -f ./build/*.idsig
-    echo -e "Patched $EDEN_NAME with com.tencent.ig package name" >> build.md
+    echo -e "Patched  Eden $EDEN_NAME with com.tencent.ig package name" >> build.md
+    echo -e '"eden-pubg": { "exts": ["apk"], "name": "eden-pubg","arch": "all","patch": "pubg", "version": "'$EDEN_NAME'"},' >> build.json
+
 }
 
 winlator-pubgvn() {
@@ -63,8 +69,9 @@ winlator-pubgvn() {
     sign winlator-patched.apk ./build/winlator-pubgvn-$tag.apk
     rm -f ./build/*.idsig
     echo -e "Patched Winlator-Ludashi with com.vng.pubgmobile package name" >> build.md
+    echo -e '"winlator-pubgvn": { "exts": ["apk"], "name": "winlator-pubgvn","arch": "all","patch": "pubgvn", "version": "'$tag'"},' >> build.json
 }
-
+echo -e '}' >> build.json
 amazon-alexa
 amazon-india
 revenge-discord
