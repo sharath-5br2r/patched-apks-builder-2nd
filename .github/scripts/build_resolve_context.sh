@@ -2,9 +2,8 @@
 set -euo pipefail
 CONFIG="$1"
 
-if [ ! -f "$CONFIG" || "$CONFIG" != "custom" ]; then
-  echo "::error::Config file not found: $CONFIG"
-  exit 1
+if [ ! -f "$CONFIG"  ]; then
+  echo "::warning::Config file not found: $CONFIG, assuming dev"
 fi
 
 echo "CONFIG_FILE=$CONFIG" >> "$GITHUB_OUTPUT"

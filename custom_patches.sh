@@ -8,7 +8,7 @@ amazon-india(){
 	sign "./amazon-india.apk" ./build/amazon-india-$version.apk
     rm -f ./build/*.idsig
     echo -e "Signed amazon-india-$version.apk" >> build.md
-    echo -e '"amazon-india": { "exts": ["apk"], "name": "amazon-india","arch": "all","patch": "none", "version": "'$version'"},' >> build.json
+    echo -e "\"amazon-india\": { \"exts\": [\"apk\"], \"name\": \"amazon-india\",\"arch\": \"all\",\"patch\": \"none\", \"version\": \"$version\"}," >> build.json
     unset version
 }
 amazon-alexa(){
@@ -18,7 +18,7 @@ amazon-alexa(){
 	sign "./amazon-alexa.apk" ./build/amazon-alexa-$version.apk
     rm -f ./build/*.idsig
     echo -e "Signed amazon-alexa-$version.apk" >> build.md
-    echo -e '"amazon-alexa": { "exts": ["apk"], "name": "amazon-alexa","arch": "all","patch": "none", "version": "'$version'"},' >> build.json
+    echo -e "\"amazon-alexa\": { \"exts\": [\"apk\"], \"name\": \"amazon-alexa\",\"arch\": \"all\",\"patch\": \"none\", \"version\": \"$version\"}," >> build.json
     unset version
 }
 revenge-discord() {
@@ -30,7 +30,7 @@ revenge-discord() {
 	java -cp "bcprov.jar:npatch.jar" -Djava.security.properties=bc.security top.nkbe.npatch.patch.NPatch ./download/discord.apk -k ks.keystore  $KEYSTORE_PASS $KEYSTORE_ALIAS $KEYSTORE_PASS -m "revenge.apk" -o ./build/
     mv ./build/discord-*-npatched.apk "./build/discord-revenge-$version.apk"
     echo -e "Patched discord-$version.apk with revenge-xposed" >> build.md
-    echo -e '"discord-revenge": { "exts": ["apk"], "name": "discord-revenge","arch": "all","patch": "revenge-mod/revenge-xposed", "version": "'$version'"},' >> build.json
+    echo -e "\"discord-revenge\": { \"exts\": [\"apk\"], \"name\": \"discord-revenge\",\"arch\": \"all\",\"patch\": \"revenge-mod/revenge-xposed\", \"version\": \"$version\"}," >> build.json
     unset version
 }
 dolphin-sdk29() {
@@ -43,7 +43,7 @@ dolphin-sdk29() {
     java -jar APKEditor.jar b -i dolphin-src -o dolphin-patched.apk
     sign dolphin-patched.apk ./build/$DOLPHIN_NAME-signed.apk
     echo -e "Patched $DOLPHIN_NAME with SDK 29" >> build.md
-    echo -e '"dolphin-sdk29": { "exts": ["apk"], "name": "dolphin-sdk29","arch": "all","patch": "sdk29", "version": "'$DOLPHIN_NAME'"},' >> build.json
+    echo -e "\"dolphin-sdk29\": { \"exts\": [\"apk\"], \"name\": \"dolphin-sdk29\",\"arch\": \"all\",\"patch\": \"sdk29\", \"version\": \"$DOLPHIN_NAME\"}," >> build.json
     rm -f ./build/*.idsig
     }
 
@@ -58,7 +58,7 @@ eden-pubg() {
     sign eden-patched.apk ./build/Eden-Android-pubg-$date1-$EDEN_NAME.apk
     rm -f ./build/*.idsig
     echo -e "Patched  Eden $EDEN_NAME with com.tencent.ig package name" >> build.md
-    echo -e '"eden-pubg": { "exts": ["apk"], "name": "eden-pubg","arch": "arm64-v8a","patch": "pubg", "version": "'$EDEN_NAME'"},' >> build.json
+    echo -e "\"eden-pubg\": { \"exts\": [\"apk\"], \"name\": \"eden-pubg\",\"arch\": \"arm64-v8a\",\"patch\": \"pubg\", \"version\": \"$EDEN_NAME\"}," >> build.json
 
 }
 
@@ -70,7 +70,7 @@ winlator-pubgvn() {
     sign winlator-patched.apk ./build/winlator-pubgvn-$tag.apk
     rm -f ./build/*.idsig
     echo -e "Patched Winlator-Ludashi with com.vng.pubgmobile package name" >> build.md
-    echo -e '"winlator-pubgvn": { "exts": ["apk"], "name": "winlator-pubgvn","arch": "arm64-v8a","patch": "pubgvn", "version": "'$tag'"}' >> build.json
+    echo -e "\"winlator-pubgvn\": { \"exts\": [\"apk\"], \"name\": \"winlator-pubgvn\",\"arch\": \"arm64-v8a\",\"patch\": \"pubgvn\", \"version\": \"$tag\"}," >> build.json
 }
 
 amazon-alexa

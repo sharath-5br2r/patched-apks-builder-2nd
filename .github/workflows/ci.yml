@@ -100,14 +100,19 @@ jobs:
     with:
       config_file: "custom"
     secrets: inherit
+  build_dynamic:
+    needs: [check_patch, build, build_custom]
+    if: ${{ always()  && needs.check_patch.result == 'success' && needs.build.result != 'cancelled' && needs.build_custom.result != 'cancelled' }}
+    uses: ./.github/workflows/dynamic_build.yml
+    secrets: inherit
   trigger_cleanup:
-    needs: [build, build_custom]
-    if: ${{ always() && (needs.build.result == 'success' || needs.build_custom.result == 'success') }}
+    needs: [build, build_custom, build_dynamic]
+    if: ${{ always() && (needs.build.result == 'success' || needs.build_custom.result == 'success' || needs.build_dynamic.result == 'success') }}
     uses: ./.github/workflows/cleanup.yml
     secrets: inherit
   trigger_website_update:
-    needs: [build, build_custom, trigger_cleanup]
-    if: ${{ always() && (needs.build.result == 'success' || needs.build_custom.result == 'success') }}
+    needs: [build, build_custom, build_dynamic, trigger_cleanup]
+    if: ${{ always() && (needs.build.result == 'success' || needs.build_custom.result == 'success' || needs.build_dynamic.result == 'success') }}
     uses: ./.github/workflows/update-cache.yml
     secrets: inherit
 

@@ -1,0 +1,199 @@
+name: Build and patch LeviLauncher into BGMI
+permissions: write-all
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  build:
+    env:
+      CURSE_API_KEY: "$2a$10$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
+      OAUTH_API_KEY: ${{ secrets.FCL_OAUTH_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Resolve build context
+        id: context
+        run: bash .github/scripts/build_resolve_context.sh custom
+
+      - name: Resolve version code
+        id: version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash .github/scripts/build_resolve_version.sh
+      
+      - name: Get LeviLauncher, Geode, FCL tag
+        id: get_tags
+        run:  |
+            echo "LEVILAUNCHER_TAG=$(gh release view -R 0Sombra666/LeviLaunchroidUnlocked --json tagName --jq '.tagName' )" >> $GITHUB_ENV
+            echo "GEODE_TAG=$(gh release view -R FCL-Team/Geode --json tagName --jq '.tagName' )" >> $GITHUB_ENV
+            echo "FCL_TAG=$(gh release view -R FCL-Team/FoldCraftLauncher --json tagName --jq '.tagName' )" >> $GITHUB_ENV
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Clone code
+        run: |
+          git clone --depth 1 --branch ${{ env.LEVILAUNCHER_TAG }} https://github.com/0Sombra666/LeviLaunchroidUnlocked.git --recursive --shallow-submodules levilauncher
+          git clone --depth 1 --branch ${{ env.GEODE_TAG }} https://github.com/FCL-Team/Geode.git --recursive --shallow-submodules geode
+          git clone --depth 1 --branch ${{ env.FCL_TAG }} https://github.com/FCL-Team/FoldCraftLauncher.git --recursive --shallow-submodules fcl
+      - name: Prepare google-services.json
+        run: |
+          mkdir -p levilauncher/app
+          cat > levilauncher/app/google-services.json <<'JSON'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "ci-placeholder",
+              "storage_bucket": "ci-placeholder.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+                  "android_client_info": {
+                    "package_name": "com.pubg.imobile"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "AIzaSyCIOnlyPlaceholderKey"
+                  }
+                ],
+                "services": {
+                  "appinvite_service": {
+                    "other_platform_oauth_client": []
+                  }
+                }
+              }
+            ],
+            "configuration_version": "1"
+          }
+          JSON
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: gradle
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Accept Licenses
+        run: yes | sdkmanager --licenses
+
+      - name: Install Build Tools 35.0.0
+        run: sdkmanager "build-tools;35.0.0"
+
+      - name: Setup Xmake
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: "2.9.9"
+          actions-cache-folder: ".xmake-cache"
+          actions-cache-key: "ubuntulinux-ci"
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r28c
+          link-to-sdk: true
+
+      - name: Grant Execute Permission to gradlew
+        run: | 
+            chmod +x ./levilauncher/gradlew
+            chmod +x ./geode/gradlew
+            chmod +x ./fcl/gradlew
+
+      - name: Inject API Key
+        run: echo "curseforge.api_key=$2a$10$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm" >> levilauncher/local.properties
+     
+      - name: Patch
+        run:  |
+          sed -i 's/applicationId "org\.levimc\.launcher"/applicationId "com.pubg.imobile"/' levilauncher/app/build.gradle
+          sed -i 's#<string name="app_name">LeviLauncher Unlocked</string>#<string name="app_name">LeviLauncher Unlocked (BGMI)</string>#' levilauncher/app/src/main/res/values/strings.xml
+          sed -i 's/applicationId = "com\.geode\.launcher"/applicationId = "com.pubg.krmobile"/' geode/app/build.gradle.kts
+          sed -i 's#<string name="app_name" translatable="false">Geode</string>#<string name="app_name" translatable="false">Geode (PUBG:KR)</string>#' geode/app/src/main/res/values/strings.xml
+          sed -i 's/signingConfig = signingConfigs\.getByName("FCLKey")/signingConfig = signingConfigs.getByName("FCLDebugKey")/' fcl/FCL/build.gradle.kts
+          sed -i 's/applicationId = "com\.tungsten\.fcl"/applicationId = "com.activision.callofduty.shooter"/' fcl/FCL/build.gradle.kts
+          sed -i 's#<string name="app_name" translatable="false">Fold Craft Launcher</string>#<string name="app_name" translatable="false">Fold Craft Launcher (CoDM)</string>#' fcl/FCL/src/main/res/values/strings.xml
+
+
+
+      - name: Build Release APKs
+        run: |
+         ./levilauncher/gradlew assembleRelease -p levilauncher
+         ./geode/gradlew app:assembleRelease -p geode
+         ./gradlew assemblerelease -Darch=all -p fcl
+
+
+
+      - name: Prepare and extract keystore
+        run: |
+          bcversion=$(curl -fsSL https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/maven-metadata.xml | grep -oPm1 '(?<=<release>)[^<]+')
+          echo -e "\e[32m[+] Downloading Bouncy Castle Provider\e[0m"
+          wget -qO bcprov.jar "https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/$bcversion/bcprov-jdk18on-$bcversion.jar"
+          LAST_PROV=$(grep "^security.provider\." "$JAVA_HOME/conf/security/java.security"  | grep -oP '(?<=security\.provider\.)\d+' | sort -n | tail -1)
+          echo "security.provider.$((LAST_PROV+1))=org.bouncycastle.jce.provider.BouncyCastleProvider"  > bc.security
+          echo "${{ secrets.KEYSTORE}}" | base64 -d > ks.keystore
+      - name: Install apksigner
+        run: |
+         wget -qO sdk.zip "https://dl.google.com/android/repository/build-tools_r36_linux.zip"
+         unzip -q -j sdk.zip android-16/lib/apksigner.jar
+
+      - name: Sign APK with keystore
+        run: |
+          APK_IN=$(find levilauncher/app/build/outputs/apk/release -name "*.apk" | head -1)
+          APK_OUT="LeviLauncherUnlocked-bgmi-$LEVILAUNCHER_TAG.apk"
+          java -cp "bcprov.jar:apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in "$APK_IN" --out "$APK_OUT"
+          APK_PATH=${{github.workspace}}/geode/app/build/outputs/apk/release/app-universal-release-unsigned.apk
+          java -cp "bcprov.jar:apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in $APK_PATH --out "./geode-pubgkr-$GEODE_TAG.apk"
+          java -cp "bcprov.jar:apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in ./fcl/FCL/build/outputs/apk/release/*.apk --out "./fcl-cod-$FCL_TAG.apk"
+        
+        env:
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
+          KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate build.md and build.json
+        run: |
+           echo -e "{ \"levilauncher-bgmi\": { \"exts\": [\"apk\"], \"name\": \"levilauncher-bgmi\",\"arch\": \"all\",\"patch\": \"bgmi\", \"version\": \"$LEVILAUNCHER_TAG\" }, \"geode-pubgkr\": { \"exts\": [\"apk\"], \"name\": \"geode-pubgkr\",\"arch\": \"all\",\"patch\": \"pubgkr\", \"version\": \"$GEODE_TAG\" }, \"fcl-cod\": { \"exts\": [\"apk\"], \"name\": \"fcl-cod\",\"arch\": \"all\",\"patch\": \"cod\", \"version\": \"$FCL_TAG\" } }" >> build.json
+           echo  -e "Patched and signed the following APKs:\n- LeviLauncherUnlocked-bgmi-$LEVILAUNCHER_TAG.apk\n- geode-pubgkr-$GEODE_TAG.apk\n- fcl-cod-$FCL_TAG.apk" >> build.md
+      - name: Get output
+        id: get_output
+        run: bash .github/scripts/build_get_output.sh
+
+      - name: Update readme
+        run: |
+          python3 update-readme.py ${{ steps.version.outputs.NEXT_VER_CODE }} "$GITHUB_REPOSITORY"
+
+      - name: Commit updated readme
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          branch: main
+          skip_checkout: true
+          file_pattern: README.md
+          commit_message: "Update README for Build No. ${{ steps.version.outputs.NEXT_VER_CODE }} [skip ci]"
+
+      - name: Upload to release (Archive)
+        uses: softprops/action-gh-release@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ./*.apk
+          tag_name: ${{ steps.context.outputs.ARCHIVE_TAG }}
+          overwrite_files: true
+
+      - name: Upload to release
+        uses: softprops/action-gh-release@v3
+        with:
+          body: ${{ steps.get_output.outputs.BUILD_LOG }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ./*.apk
+          name: Build No. ${{ steps.version.outputs.NEXT_VER_CODE }}
+          tag_name: ${{ steps.version.outputs.NEXT_VER_CODE }}
+          overwrite_files: true
+          prerelease: ${{ steps.context.outputs.IS_PRERELEASE == 'true' }}
+
+        
