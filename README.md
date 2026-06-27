@@ -200,9 +200,8 @@ Patches: [BholeyKaBhakt/patches-2.12.0.mpp](https://github.com/BholeyKaBhakt/rev
   
 <blockquote>
 
-[Release 2026-06-25](https://github.com/nullcpy/rvb/releases/tag/393)<br>
-Patches: [arandomhooman/patches-1.31.0.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.0)
-
+[Release 2026-06-27](https://github.com/nullcpy/rvb/releases/tag/406)<br>
+Patches: [arandomhooman/patches-1.31.3.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.3)
 - Unlock PRO
 </blockquote>
 </details>
@@ -508,13 +507,12 @@ Patches: [docbt/patches-1.9.0.mpp](https://github.com/docbt/patched-up/releases/
 #### [Morphe (De-Vanced)](https://github.com/RookieEnough/De-Vanced)
 
 <details>
-<summary id="google-photos-morphe">&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v7.81.0.932521513-gray?labelColor=FBBC04&logo=googlephotos&logoColor=white&style=flat"></summary>
+<summary id="google-photos-morphe">&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v7.82.0.937646388-gray?labelColor=FBBC04&logo=googlephotos&logoColor=white&style=flat"></summary>
   
 <blockquote>
 
-[Release 2026-06-21](https://github.com/nullcpy/rvb/releases/tag/373)<br>
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
 Patches: [RookieEnough/patches-1.0.4.mpp](https://github.com/RookieEnough/De-ReVanced/releases/tag/v1.0.4)
-
 - Fix selected account persistence
 - GmsCore support
 - Spoof features
@@ -643,12 +641,12 @@ Patches: [jkennethcarino/patches-1.2.0.mpp](https://github.com/jkennethcarino/ad
 #### [Morphe (Brosssh)](https://github.com/brosssh/morphe-patches)
 
 <details>
-<summary id="instagram-morphe">&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v435.0.0.37.76-gray?labelColor=E4405F&logo=instagram&logoColor=white&style=flat"></summary>
+<summary id="instagram-morphe">&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v430.0.0.53.80-gray?labelColor=E4405F&logo=instagram&logoColor=white&style=flat"></summary>
 
 <blockquote>
 
-[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/400)<br>
-Patches: [brosssh/patches-2.8.1-dev.4.mpp](https://github.com/brosssh/morphe-patches/releases/tag/v2.8.1-dev.4)
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
+Patches: [brosssh/patches-2.8.0.mpp](https://github.com/brosssh/morphe-patches/releases/tag/v2.8.0)
 - Bypass signature check
 - Disable Reels scrolling
 - Disable story auto flipping
@@ -670,9 +668,8 @@ Patches: [brosssh/patches-2.8.1-dev.4.mpp](https://github.com/brosssh/morphe-pat
 
 <blockquote>
 
-[Release 2026-06-23](https://github.com/nullcpy/rvb/releases/tag/385)<br>
-Patches: [crimera/patches-3.7.0-dev.3.mpp](https://github.com/crimera/piko/releases/tag/v3.7.0-dev.3)
-
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
+Patches: [crimera/patches-3.6.0.mpp](https://github.com/crimera/piko/releases/tag/v3.6.0)
 - Add settings
 - Allow user network certificate
 - Amoled theme
@@ -939,9 +936,8 @@ Patches: [binarymend/patches-1.3.1.mpp](https://github.com/binarymend/morphe-pat
   
 <blockquote>
 
-[Release 2026-06-25](https://github.com/nullcpy/rvb/releases/tag/393)<br>
-Patches: [arandomhooman/patches-1.31.0.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.0)
-
+[Release 2026-06-27](https://github.com/nullcpy/rvb/releases/tag/406)<br>
+Patches: [arandomhooman/patches-1.31.3.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.3)
 - Unlock Premium
 </blockquote>
 </details>
@@ -1207,15 +1203,15 @@ Patches: [Raudrobot/patches-6.1.0.rvp](https://github.com/Raudrobot/revanced-pat
   
 <blockquote>
 
-[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/400)<br>
-Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.33.0-dev.2)
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
+Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.32.0)
 - Disable modern home
 - Disable screenshot popup
 - Hide Ask button
-- Hide Trending shelves
+- Hide Trending Today shelf
 - Hide ads
-- Hide communities shelf
 - Hide navigation buttons
+- Hide recommended communities shelf
 - Hide sidebar components
 - Open links directly
 - Open links externally
@@ -1227,13 +1223,12 @@ Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morph
 </details>
 
 <details>
-<summary id="reddit-morphe-exp"><b>Experimental</b>&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v2026.25.0-gray?labelColor=FF4500&logo=reddit&logoColor=white&style=flat"></summary>
+<summary id="reddit-morphe-exp"><b>Experimental</b>&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v2026.26.0-gray?labelColor=FF4500&logo=reddit&logoColor=white&style=flat"></summary>
   
 <blockquote>
 
-[Release 2026-06-23](https://github.com/nullcpy/rvb/releases/tag/387)<br>
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
 Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.32.0)
-
 - Disable modern home
 - Disable screenshot popup
 - Hide Ask button
@@ -1310,9 +1305,8 @@ Patches: [anddea/patches-4.0.0.mpp](https://github.com/anddea/revanced-patches/r
   
 <blockquote>
 
-[Release 2026-06-24](https://github.com/nullcpy/rvb/releases/tag/391)<br>
-Patches: [arandomhooman/patches-1.31.0.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.0)
-
+[Release 2026-06-27](https://github.com/nullcpy/rvb/releases/tag/406)<br>
+Patches: [arandomhooman/patches-1.31.3.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.3)
 - Unlock Premium
 </blockquote>
 </details>
@@ -1741,9 +1735,8 @@ Patches: [Raudrobot/patches-6.1.0.rvp](https://github.com/Raudrobot/revanced-pat
   
 <blockquote>
 
-[Release 2026-06-25](https://github.com/nullcpy/rvb/releases/tag/392)<br>
-Patches: [arandomhooman/patches-1.31.0.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.0)
-
+[Release 2026-06-27](https://github.com/nullcpy/rvb/releases/tag/406)<br>
+Patches: [arandomhooman/patches-1.31.3.mpp](https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.31.3)
 - Auto claim channel points
 - Block live ads
 - Hide display ads
@@ -1900,9 +1893,8 @@ Patches: [hoo-dles/patches-1.37.0.mpp](https://github.com/hoo-dles/morphe-patche
   
 <blockquote>
 
-[Release 2026-06-24](https://github.com/nullcpy/rvb/releases/tag/390)<br>
-Patches: [inotia00/patches-1.6.3.mpp](https://gitlab.com/inotia00/x-shim/-/releases/v1.6.3), [crimera/patches-3.7.0-dev.5.mpp](https://github.com/crimera/piko/releases/tag/v3.7.0-dev.5)
-
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/404)<br>
+Patches: [inotia00/patches-1.6.3.mpp](https://gitlab.com/inotia00/x-shim/-/releases/v1.6.3), [crimera/patches-3.7.0-dev.9.mpp](https://github.com/crimera/piko/releases/tag/v3.7.0-dev.9)
 - Abstract shim layer
 - Abstract shim layer for method
 - Abstract shim layer for native library
@@ -1981,9 +1973,8 @@ Patches: [inotia00/patches-1.6.3.mpp](https://gitlab.com/inotia00/x-shim/-/relea
   
 <blockquote>
 
-[Release 2026-06-24](https://github.com/nullcpy/rvb/releases/tag/390)<br>
-Patches: [inotia00/patches-1.6.3.mpp](https://gitlab.com/inotia00/x-shim/-/releases/v1.6.3), [crimera/patches-3.7.0-dev.5.mpp](https://github.com/crimera/piko/releases/tag/v3.7.0-dev.5)
-
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/404)<br>
+Patches: [inotia00/patches-1.6.3.mpp](https://gitlab.com/inotia00/x-shim/-/releases/v1.6.3), [crimera/patches-3.7.0-dev.9.mpp](https://github.com/crimera/piko/releases/tag/v3.7.0-dev.9)
 - Abstract shim layer
 - Abstract shim layer for method
 - Abstract shim layer for native library
@@ -2133,8 +2124,8 @@ Patches: [hoo-dles/patches-1.37.0.mpp](https://github.com/hoo-dles/morphe-patche
   
 <blockquote>
 
-[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/400)<br>
-Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.33.0-dev.2)
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
+Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.32.0)
 - Alternative thumbnails
 - Ambient mode
 - Bypass image region restrictions
@@ -2181,7 +2172,6 @@ Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morph
 - Media notification controls
 - Miniplayer
 - Navigation bar
-- Network proxy
 - Open Shorts in regular player
 - Open channel of live avatar
 - Open links externally
@@ -2206,7 +2196,6 @@ Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morph
 - Theme
 - Video ads
 - Video quality
-- Voice over translation
 </blockquote>
 </details>
 
@@ -2373,13 +2362,12 @@ Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patc
 </details>
 
 <details>
-<summary id="youtube-morphe-exp"><b>Experimental</b>&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v21.25.523.SECONDARY-gray?labelColor=FF0000&logo=youtube&logoColor=white&style=flat"></summary>
+<summary id="youtube-morphe-exp"><b>Experimental</b>&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v21.25.530-gray?labelColor=FF0000&logo=youtube&logoColor=white&style=flat"></summary>
   
 <blockquote>
 
-[Release 2026-06-23](https://github.com/nullcpy/rvb/releases/tag/387)<br>
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
 Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.32.0)
-
 - Alternative thumbnails
 - Ambient mode
 - Bypass image region restrictions
@@ -2460,9 +2448,8 @@ Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patc
   
 <blockquote>
 
-[Release 2026-06-16](https://github.com/nullcpy/rvb/releases/tag/357)<br>
-Patches: [anddea/patches-4.1.0.mpp](https://github.com/anddea/revanced-patches/releases/tag/v4.1.0)
-
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/402)<br>
+Patches: [anddea/patches-4.2.0-dev.1.mpp](https://github.com/anddea/revanced-patches/releases/tag/v4.2.0-dev.1)
 - Alternative thumbnails
 - Ambient mode control
 - Bypass URL redirects
@@ -2975,8 +2962,8 @@ Patches: [wchill/patches-5.16.4.mpp](https://github.com/wchill/rvx-morphed/relea
   
 <blockquote>
 
-[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/400)<br>
-Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.33.0-dev.2)
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
+Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.32.0)
 - Bypass certificate checks
 - Change header
 - Change miniplayer color
@@ -2997,7 +2984,6 @@ Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morph
 - Hide music video ads
 - Miniplayer previous and next buttons
 - Navigation bar
-- Network proxy
 - Permanent repeat
 - Remove background playback restrictions
 - Sanitize sharing links
@@ -3008,13 +2994,12 @@ Patches: [MorpheApp/patches-1.33.0-dev.2.mpp](https://github.com/MorpheApp/morph
 </details>
 
 <details>
-<summary id="youtube-music-morphe-exp"><b>Experimental</b>&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v9.24.51-gray?labelColor=FF0000&logo=youtubemusic&logoColor=white&style=flat"></summary>
+<summary id="youtube-music-morphe-exp"><b>Experimental</b>&emsp;<a href="https://nullcpy.github.io/"><img src="https://img.shields.io/badge/version-v9.25.50-gray?labelColor=FF0000&logo=youtubemusic&logoColor=white&style=flat"></summary>
   
 <blockquote>
 
-[Release 2026-06-23](https://github.com/nullcpy/rvb/releases/tag/387)<br>
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/403)<br>
 Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.32.0)
-
 - Bypass certificate checks
 - Change header
 - Change miniplayer color
@@ -3051,9 +3036,8 @@ Patches: [MorpheApp/patches-1.32.0.mpp](https://github.com/MorpheApp/morphe-patc
   
 <blockquote>
 
-[Release 2026-06-16](https://github.com/nullcpy/rvb/releases/tag/357)<br>
-Patches: [anddea/patches-4.1.0.mpp](https://github.com/anddea/revanced-patches/releases/tag/v4.1.0)
-
+[Release 2026-06-26](https://github.com/nullcpy/rvb/releases/tag/402)<br>
+Patches: [anddea/patches-4.2.0-dev.1.mpp](https://github.com/anddea/revanced-patches/releases/tag/v4.2.0-dev.1)
 - Bitrate default value
 - Bypass image region restrictions
 - Certificate spoof
