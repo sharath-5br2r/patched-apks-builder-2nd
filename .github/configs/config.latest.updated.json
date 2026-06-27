@@ -51,7 +51,7 @@
     "dpi": "480dpi"
   },
   "fing-paresh": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "fing",
     "rv-brand": "paresh",
     "build-mode": "apk",
@@ -62,7 +62,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/fing-limited/fing-network-tools"
   },
   "moonplus-reader-binarymend": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "moonplus-reader",
     "rv-brand": "binarymend",
     "build-mode": "apk",
@@ -72,7 +72,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/moon/moon-reader"
   },
   "symfonium-binarymend": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "symfonium",
     "rv-brand": "binarymend",
     "build-mode": "apk",
@@ -95,7 +95,7 @@
     "dpi": "nodpi anydpi"
   },
   "speedtest-xtra-arm64-v8a": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "speedtest",
     "rv-brand": "xtra",
     "build-mode": "apk",
@@ -107,7 +107,7 @@
     "dpi": "nodpi anydpi"
   },
   "speedtest-xtra-x86_64": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "speedtest",
     "rv-brand": "xtra",
     "build-mode": "apk",
@@ -119,7 +119,7 @@
     "dpi": "nodpi anydpi"
   },
   "proton-vpn-paresh": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "proton-vpn",
     "rv-brand": "paresh",
     "build-mode": "apk",
@@ -131,7 +131,7 @@
     "dpi": "120-640dpi"
   },
   "adobe-acrobat-hooman": {
-    "enabled": true,
+    "enabled": false,
     "cli-source": "MorpheApp/morphe-cli",
     "app-name": "adobe-acrobat",
     "rv-brand": "hooman",
@@ -142,7 +142,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/adobe/adobe-acrobat/"
   },
   "jiohotstar-paresh": {
-    "enabled": true,
+    "enabled": false,
     "cli-source": "MorpheApp/morphe-cli",
     "app-name": "jiohotstar",
     "rv-brand": "paresh",
@@ -164,7 +164,7 @@
     "archive-dlurl": "https://archive.org/download/geologically/apks/com.zhiliaoapp.musically"
   },
   "youtube-morphe": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "youtube",
     "rv-brand": "morphe",
     "build-mode": "both",
@@ -175,7 +175,7 @@
     "apkmirror-dlurl": "https://apkmirror.com/apk/google-inc/youtube"
   },
   "youtube-music-morphe-arm64-v8a": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "youtube-music",
     "rv-brand": "morphe",
     "build-mode": "both",
@@ -187,7 +187,7 @@
     "apkmirror-dlurl": "https://apkmirror.com/apk/google-inc/youtube-music"
   },
   "youtube-music-morphe-x86_64": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "youtube-music",
     "rv-brand": "morphe",
     "build-mode": "both",
