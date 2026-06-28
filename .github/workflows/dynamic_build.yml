@@ -308,7 +308,8 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./*.apk
+          files: |
+              ./*/*.apk
           tag_name: ${{ steps.context.outputs.ARCHIVE_TAG }}
           overwrite_files: true
 
@@ -317,7 +318,8 @@ jobs:
         with:
           body: ${{ steps.get_output.outputs.BUILD_LOG }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./*.apk
+          files: |
+             ./*/*.apk
           name: Build No. ${{ steps.version.outputs.NEXT_VER_CODE }}
           tag_name: ${{ steps.version.outputs.NEXT_VER_CODE }}
           overwrite_files: true
