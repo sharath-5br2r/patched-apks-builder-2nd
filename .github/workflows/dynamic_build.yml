@@ -6,10 +6,10 @@ on:
 
 jobs:
   build-levilauncher:
-    env:
-      CURSE_API_KEY: "$2a$10$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
-      OAUTH_API_KEY: ${{ secrets.FCL_OAUTH_KEY }}
     runs-on: ubuntu-latest
+    outputs:
+      LEVILAUNCHER_TAG: ${{ steps.get_tags.outputs.LEVILAUNCHER_TAG }}
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -131,6 +131,8 @@ jobs:
     needs: build-levilauncher
     runs-on: ubuntu-latest
     if: always()
+    outputs:
+      GEODE_TAG: ${{ steps.get_tags.outputs.GEODE_TAG }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -188,6 +190,8 @@ jobs:
     needs: [build-levilauncher, build-geode]
     if: always()
     runs-on: ubuntu-latest
+    outputs:
+      FCL_TAG: ${{ steps.get_tags.outputs.FCL_TAG }}
     env:
       OAUTH_API_KEY: ${{ secrets.FCL_OAUTH_KEY }}
       CURSE_API_KEY: "$2a$10$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
@@ -221,7 +225,7 @@ jobs:
           sed -i 's#<string name="app_name" translatable="false">Fold Craft Launcher</string>#<string name="app_name" translatable="false">Fold Craft Launcher (CoDM)</string>#' fcl/FCL/src/main/res/values/strings.xml
       - name: Build project
         run: |
-          ./gradlew assemblerelease -Darch=all -p fcl
+          ./fcl/gradlew assemblerelease -Darch=all -p fcl
       - name: Sign APK with keystore
         run: |
           echo "${{ secrets.KEYSTORE_P12 }}" | base64 --decode > ks.keystore
@@ -290,7 +294,7 @@ jobs:
           commit_message: "Update README for Build No. ${{ steps.version.outputs.NEXT_VER_CODE }} [skip ci]"
       - name: Download artifacts
         uses: actions/download-artifact@v8
-        
+
       - name: Upload to release (Archive)
         uses: softprops/action-gh-release@v3
         with:
