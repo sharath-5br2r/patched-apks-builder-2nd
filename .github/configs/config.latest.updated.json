@@ -1,7 +1,7 @@
 {
   "parallel-jobs": 1,
   "enable-module-update": true,
-  "patches-version": "dev",
+  "patches-version": "latest",
   "x-piko": {
     "enabled": true,
     "app-name": "x",
