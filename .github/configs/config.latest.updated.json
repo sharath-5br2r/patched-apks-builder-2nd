@@ -1,9 +1,9 @@
 {
   "parallel-jobs": 1,
-  "enable-module-update": true,
   "patches-version": "latest",
+  "enable-module-update": true,
   "x-piko": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "x",
     "rv-brand": "piko",
     "build-mode": "apk",
@@ -26,7 +26,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/google-inc/gboard"
   },
   "instagram-piko-arm64-v8a": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "instagram",
     "rv-brand": "piko",
     "build-mode": "apk",
@@ -39,7 +39,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/instagram/instagram-instagram"
   },
   "instagram-piko-x86_64": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "instagram",
     "rv-brand": "piko",
     "build-mode": "apk",
@@ -82,10 +82,10 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/tolriq/symfonium-music-player-cast",
     "archive-dlurl": "https://archive.org/download/geologically/apks/app.symfonik.music.player"
   },
-  "github-hoo-dles": {
-    "enabled": true,
+  "github-hoodles": {
+    "enabled": false,
     "app-name": "github",
-    "rv-brand": "hoo-dles",
+    "rv-brand": "hoodles",
     "build-mode": "apk",
     "patches-source": "hoo-dles/morphe-patches",
     "included-patches": "'AMOLED dark theme'",
@@ -93,6 +93,19 @@
     "uptodown-dlurl": "https://github-android.en.uptodown.com/android",
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/github/github-2",
     "dpi": "nodpi anydpi"
+  },
+  "prime-video-hoodles": {
+    "enabled": false,
+    "app-name": "prime-video",
+    "rv-brand": "hoodles",
+    "build-mode": "apk",
+    "version": "latest",
+    "arch": "arm64-v8a",
+    "patches-source": "hoo-dles/morphe-patches",
+    "included-patches": "'AMOLED dark theme'",
+    "cli-source": "MorpheApp/morphe-cli",
+    "apkmirror-dlurl": "https://www.apkmirror.com/apk/amazon-mobile-llc/amazon-prime-video/",
+    "uptodown-dlurl": "https://amazon-video.en.uptodown.com/android"
   },
   "speedtest-xtra-arm64-v8a": {
     "enabled": false,
@@ -131,7 +144,7 @@
     "dpi": "120-640dpi"
   },
   "adobe-acrobat-hooman": {
-    "enabled": false,
+    "enabled": true,
     "cli-source": "MorpheApp/morphe-cli",
     "app-name": "adobe-acrobat",
     "rv-brand": "hooman",
