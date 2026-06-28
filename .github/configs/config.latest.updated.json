@@ -27,7 +27,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/google-inc/gboard"
   },
   "instagram-piko-arm64-v8a": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "instagram",
     "rv-brand": "piko",
     "build-mode": "apk",
@@ -40,7 +40,7 @@
     "apkmirror-dlurl": "https://www.apkmirror.com/apk/instagram/instagram-instagram"
   },
   "instagram-piko-x86_64": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "instagram",
     "rv-brand": "piko",
     "build-mode": "apk",
@@ -181,7 +181,7 @@
     "archive-dlurl": "https://archive.org/download/geologically/apks/com.zhiliaoapp.musically"
   },
   "youtube-morphe": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "youtube",
     "rv-brand": "morphe",
     "build-mode": "both",
@@ -194,7 +194,7 @@
     "apkmirror-dlurl": "https://apkmirror.com/apk/google-inc/youtube"
   },
   "youtube-music-morphe-arm64-v8a": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "youtube-music",
     "rv-brand": "morphe",
     "build-mode": "both",
@@ -208,7 +208,7 @@
     "apkmirror-dlurl": "https://apkmirror.com/apk/google-inc/youtube-music"
   },
   "youtube-music-morphe-x86_64": {
-    "enabled": true,
+    "enabled": false,
     "app-name": "youtube-music",
     "rv-brand": "morphe",
     "build-mode": "both",
