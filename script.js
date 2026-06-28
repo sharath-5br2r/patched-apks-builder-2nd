@@ -18,13 +18,13 @@ const CONFIG = {
   sharedAppWordStoplist: new Set(["google"]),
 
   // Known tokens indicating a patch name starts (must be lowercase)
-  knownPatchTokens: new Set(["revanced", "morphe", "anddea", "rvx", "jasonmu1994", "paresh", "piko", "binarymend", "hoo-dles", "xtra", "revenge", "hooman", "icysymmetra", "sdk29", "pubg", "bgmi", "pubgkr", "pubgvn", "sign", "ood"]),
+  knownPatchTokens: new Set(["revanced", "morphe", "anddea", "rvx", "jasonmu1994", "paresh", "piko", "binarymend", "hoodles", "xtra", "revenge", "hooman", "icysymmetra", "sdk29", "pubg", "bgmi", "pubgkr", "pubgvn", "sign", "ood"]),
 
   // Known tokens indicating a variant (must be lowercase)
   variantKeywords: new Set([
     "x86_64",
     "arm64-v8a",
-  ],
+  ]),
 
   // Known architectures (used for regex parsing)
   knownArchs: [
@@ -79,6 +79,7 @@ const CONFIG = {
     inshorts: "Inshorts - News in 60 words",
     warp: "1.1.1.1 + WARP",
     x: "X",
+    hoodles: "hoo-dles",
     jiohotstar: "JioHotstar",
     pubg: "PUBG Mobile Spoof",
     bgmi: "Battlegrounds Mobile India Spoof",
