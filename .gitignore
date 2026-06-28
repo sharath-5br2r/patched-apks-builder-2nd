@@ -7,9 +7,3 @@ test*
 build.md
 cmpr
 *-temporary-files
-__pycache__/
-build.json
-.env
-*.keystore
-/download
-

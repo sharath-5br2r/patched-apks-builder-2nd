@@ -3,10 +3,6 @@
 RVPATH=/data/adb/rvhc/${MODDIR##*/}.apk
 . "$MODDIR/config"
 
-if su -M -c true >/dev/null 2>/dev/null; then
-	alias mm='su -M -c'
-else alias mm='nsenter -t1 -m'; fi
-
 pmex() {
 	OP=$(pm "$@" 2>&1 </dev/null)
 	RET=$?
@@ -29,15 +25,15 @@ get_basepath() {
 }
 
 umount_all() {
-	mm grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
+	su -M -c grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
 		mp=${line#* } mp=${mp%% *} mp=${mp%%\\*}
-		mm umount -l "${mp}"
+		su -M -c umount -l "${mp}"
 	done
 	am force-stop "$PKG_NAME" || :
 }
 
 get_mounts() {
-	mm grep -F "$PKG_NAME" /proc/mounts || :
+	su -M -c grep -F "$PKG_NAME" /proc/mounts || :
 }
 
 mount_rv() {
