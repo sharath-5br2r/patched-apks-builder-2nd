@@ -89,7 +89,7 @@ jobs:
 
   build:
     needs: check_patch
-    if: ${{ always()  && needs.check_patch.result == 'success'  && needs.check_patch.outputs.trigger_latest == '1' }}
+    if: ${{ always()  && needs.check_patch.result == 'success'  }}
     uses: ./.github/workflows/build.yml
     with:
       config_file: "configs/config.toml"
