@@ -268,15 +268,15 @@ jobs:
            echo -e "{" >> build.json
            if [ -n "$LEVILAUNCHER_TAG" ]; then
              echo -e "\"levilauncher-bgmi\": { \"exts\": [\"apk\"], \"name\": \"levilauncher-bgmi\",\"arch\": \"all\",\"patch\": \"bgmi\", \"version\": \"$LEVILAUNCHER_TAG\" }," >> build.json
-             echo  -e "Patched and signed the following APK:\n- levilauncher-unlocked-bgmi-$LEVILAUNCHER_TAG.apk" >> build.md
+             echo  -e "Patched and signed the following APK:\n- levilauncher-unlocked-bgmi-$LEVILAUNCHER_TAG.apk\n" >> build.md
            fi
            if [ -n "$GEODE_TAG" ]; then
              echo -e "\"geode-pubgkr\": { \"exts\": [\"apk\"], \"name\": \"geode-pubgkr\",\"arch\": \"all\",\"patch\": \"pubgkr\", \"version\": \"$GEODE_TAG\" }," >> build.json
-             echo  -e "Patched and signed the following APK:\n- geode-pubgkr-$GEODE_TAG.apk" >> build.md
+             echo  -e "Patched and signed the following APK:\n- geode-pubgkr-$GEODE_TAG.apk\n" >> build.md
            fi
            if [ -n "$FCL_TAG" ]; then
              echo -e "\"fcl-cod\": { \"exts\": [\"apk\"], \"name\": \"fcl-cod\",\"arch\": \"all\",\"patch\": \"cod\", \"version\": \"$FCL_TAG\" }" >> build.json
-             echo  -e "Patched and signed the following APK:\n- fcl-cod-$FCL_TAG.apk" >> build.md
+             echo  -e "Patched and signed the following APK:\n- fcl-cod-$FCL_TAG.apk\n" >> build.md
            fi
            echo -e "}" >> build.json
         env:
@@ -301,6 +301,8 @@ jobs:
           commit_message: "Update README for Build No. ${{ steps.version.outputs.NEXT_VER_CODE }} [skip ci]"
       - name: Download artifacts
         uses: actions/download-artifact@v8
+        with:
+          path: .
 
       - name: Upload to release (Archive)
         uses: softprops/action-gh-release@v3
