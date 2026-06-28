@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p ./release ./download
+mkdir -p ./release ./download ./temp
 
 #Check if ks.keystore file exists
 if [ ! -f ks.keystore ]; then
@@ -17,35 +17,26 @@ get_experimental_version() {
 }
 
 
-#Setup Apksigner
-if [ ! -f apksigner.jar ]; then
-	wget -qO sdk.zip "https://dl.google.com/android/repository/build-tools_r37_linux.zip"
-	unzip -q -o -j sdk.zip android-37.0/lib/apksigner.jar
-	rm -f ./sdk.zip
-fi
 
 #Setup pup for download apk files
 echo -e "\e[32m[+] Setting up pup for HTML parsing\e[0m"
-if [[ $OSTYPE == "cygwin" ]]; then
-	wget -q -O ./pup.zip https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_windows_amd64.zip
-	unzip -o "./pup.zip" -d "./" > /dev/null 2>&1
-	rm -f "./pup.zip"
-	pup="./pup.exe"
-elif [[ $(uname) == "Linux" && $(uname -m) == "aarch64" ]]; then
-	wget -q -O ./pup.zip https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_arm64.zip
-	unzip -o "./pup.zip" -d "./" > /dev/null 2>&1
-	rm -f "./pup.zip"
-	pup="./pup"
+if [[ $(uname) == "Linux" && $(uname -m) == "aarch64" ]]; then
+	wget -q -O ./temp/pup.zip https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_arm64.zip
+	unzip -o "./temp/pup.zip" -d "./temp/" > /dev/null 2>&1
+	rm -f "./temp/pup.zip"
+	chmod +x ./temp/pup
+	pup="./temp/pup"
 elif [[ $(uname) == "Linux" && $(uname -m) == "x86_64" ]]; then
-	wget -q -O ./pup.zip https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
-	unzip -o "./pup.zip" -d "./" > /dev/null 2>&1
-	rm -f "./pup.zip"
-	pup="./pup"
+	wget -q -O ./temp/pup.zip https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
+	unzip -o "./temp/pup.zip" -d "./temp/" > /dev/null 2>&1
+	rm -f "./temp/pup.zip"
+	chmod +x ./temp/pup
+	pup="./temp/pup"
 fi
 #Setup APKEditor for install combine split apks
 echo -e "\e[32m[+] Setting up APKEditor for combining apks\e[0m"
-wget -q $(gh api repos/REAndroid/APKEditor/releases/latest | jq -r '.assets[0].browser_download_url') -O APKEditor.jar
-APKEditor="./APKEditor.jar"
+wget -q $(gh api repos/REAndroid/APKEditor/releases/latest | jq -r '.assets[0].browser_download_url') -O ./temp/APKEditor.jar
+APKEditor="./temp/APKEditor.jar"
 #Find lastest user_agent
 user_agent=$(wget -qO- https://www.whatismybrowser.com/guides/the-latest-user-agent/firefox | tr '\n' ' ' | sed 's#</tr>#\n#g' | grep 'Firefox (Standard)' | sed -n 's/.*<span class="code">\([^<]*Android[^<]*\)<\/span>.*/\1/p') \
 || user_agent=
@@ -54,21 +45,9 @@ user_agent=$(wget -qO- https://www.whatismybrowser.com/guides/the-latest-user-ag
   echo "[-] Can't found lastest user-agent"
 }
 
-# Setup Bouncy Castle Provider
-bcversion=$(curl -fsSL https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/maven-metadata.xml | grep -oPm1 '(?<=<release>)[^<]+')
-echo -e "\e[32m[+] Downloading Bouncy Castle Provider\e[0m"
-wget -qO bcprov.jar "https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/$bcversion/bcprov-jdk18on-$bcversion.jar"
-LAST_PROV=$(grep "^security.provider\." "$JAVA_HOME/conf/security/java.security"  | grep -oP '(?<=security\.provider\.)\d+' | sort -n | tail -1)
-echo "security.provider.$((LAST_PROV+1))=org.bouncycastle.jce.provider.BouncyCastleProvider"  > bc.security
-
-
 #Sign Apks
 sign() {
-	if [[ $OSTYPE == "cygwin" ]]; then
-		java -cp "bcprov.jar;apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in "$1" --out "$2"
-    else
-        java -cp "bcprov.jar:apksigner.jar" com.android.apksigner.ApkSignerTool sign --ks-provider-class org.bouncycastle.jce.provider.BouncyCastleProvider  --provider-class org.bouncycastle.jce.provider.BouncyCastleProvider --ks ks.keystore --ks-type BKS --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in "$1" --out "$2"
-	fi
+	java -jar ./bin/apksigner.jar sign  --ks ks-p12.keystore --ks-type PKCS12 --ks-key-alias $KEYSTORE_ALIAS --ks-pass pass:$KEYSTORE_PASS --in "$1" --out "$2"
 }
 
 #################################################

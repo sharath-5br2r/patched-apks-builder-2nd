@@ -27,7 +27,12 @@ revenge-discord() {
 	dl_gh "revenge-xposed" "revenge-mod" "latest" "revenge.apk" "app-release.apk"
 	get_apk "com.discord" "discord" "bundle"
     version=$(java -jar ./APKEditor.jar info -i ./download/discord.apk -version-name  -t json | jq -r '.[].VersionName')
-	java -cp "bcprov.jar:npatch.jar" -Djava.security.properties=bc.security top.nkbe.npatch.patch.NPatch ./download/discord.apk -k ks.keystore  $KEYSTORE_PASS $KEYSTORE_ALIAS $KEYSTORE_PASS -m "revenge.apk" -o ./build/
+	bcversion=$(curl -fsSL https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/maven-metadata.xml | grep -oPm1 '(?<=<release>)[^<]+')
+    echo -e "\e[32m[+] Downloading Bouncy Castle Provider\e[0m"
+    wget -qO bcprov.jar "https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/$bcversion/bcprov-jdk18on-$bcversion.jar"
+    LAST_PROV=$(grep "^security.provider\." "$JAVA_HOME/conf/security/java.security"  | grep -oP '(?<=security\.provider\.)\d+' | sort -n | tail -1)
+    echo "security.provider.$((LAST_PROV+1))=org.bouncycastle.jce.provider.BouncyCastleProvider"  > bc.security
+    java -cp "bcprov.jar:npatch.jar" -Djava.security.properties=bc.security top.nkbe.npatch.patch.NPatch ./download/discord.apk -k ks.keystore  $KEYSTORE_PASS $KEYSTORE_ALIAS $KEYSTORE_PASS -m "revenge.apk" -o ./build/
     mv ./build/discord-*-npatched.apk "./build/discord-revenge-v$version.apk"
     echo -e "Patched Discord $version with revenge-xposed" >> build.md
     echo -e "\"discord-revenge\": { \"exts\": [\"apk\"], \"name\": \"discord-revenge\",\"arch\": \"all\",\"patch\": \"revenge-mod/revenge-xposed\", \"version\": \"$version\"}," >> build.json
@@ -82,3 +87,11 @@ eden-pubg
 winlator-pubgvn
 
 echo -e '}' >> build.json
+rm -rf ./download
+rm -rf ./temp
+rm -rf ./eden-src
+rm -rf ./dolphin-src
+rm -rf ./winlator-src
+rm -rf ./*.apk
+rm -rf ./*.jar
+rm -rf ./bc.security
