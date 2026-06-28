@@ -88,8 +88,8 @@ jobs:
 
   build:
     needs: check_patch
+    if: ${{ always()  && needs.check_patch.result == 'success' }}
     uses: ./.github/workflows/build.yml
-    if: needs.check_patch.outputs.trigger_stable == '1'
     with:
       config_file: "configs/config.toml"
     secrets: inherit
