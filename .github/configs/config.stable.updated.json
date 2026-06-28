@@ -113,7 +113,7 @@
     "app-name": "instagram",
     "rv-brand": "morphe-piko",
     "build-mode": "both",
-    "arch": "both",
+    "arch": "all",
     "patches-source": "crimera/piko",
     "cli-source": "MorpheApp/morphe-cli",
     "uptodown-dlurl": "https://instagram.en.uptodown.com/android",

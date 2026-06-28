@@ -1354,20 +1354,16 @@ build_rv() {
 
 		local stock_apk_to_patch="${stock_apk}.stripped.apk"
 		cp -f "$stock_apk" "$stock_apk_to_patch"
-		if [ "$build_mode" = module ]; then
-			zip -d "$stock_apk_to_patch" "lib/*" >/dev/null 2>&1 || :
+		if [ "$arch" = "arm64-v8a" ]; then
+			zip -d "$stock_apk_to_patch" "lib/armeabi-v7a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+		elif [ "$arch" = "arm-v7a" ]; then
+			zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+		elif [ "$arch" = "x86" ]; then
+			zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/armeabi-v7a/*" >/dev/null 2>&1 || :
+		elif [ "$arch" = "x86_64" ]; then
+			zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/armeabi-v7a/*" "lib/x86/*" >/dev/null 2>&1 || :
 		else
-			if [ "$arch" = "arm64-v8a" ]; then
-				zip -d "$stock_apk_to_patch" "lib/armeabi-v7a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-			elif [ "$arch" = "arm-v7a" ]; then
-				zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-			elif [ "$arch" = "x86" ]; then
-				zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/armeabi-v7a/*" >/dev/null 2>&1 || :
-			elif [ "$arch" = "x86_64" ]; then
-				zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/armeabi-v7a/*" "lib/x86/*" >/dev/null 2>&1 || :
-			else
-				zip -d "$stock_apk_to_patch" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-			fi
+			zip -d "$stock_apk_to_patch" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
 		fi
 
 		local apk_output="${BUILD_DIR}/${app_name_l}-${rv_brand_f}-v${version_f}-${arch_f}.apk"
@@ -1393,14 +1389,14 @@ build_rv() {
 		cp -a $MODULE_TEMPLATE_DIR/. "$base_template"
 		local upj="${table,,}-update.json"
 
-		module_config "$base_template" "$pkg_name" "$version" "$arch"
+		module_config "$base_template" "$pkg_name" "$version_f" "$arch"
 
 		local patches_ver
 		patches_ver="${patches_jar%% *}"; patches_ver="${patches_ver##*-}"
 		module_prop \
 			"${args[module_prop_name]}" \
 			"${app_name} ${args[rv_brand]}" \
-			"${version} (patches ${patches_ver})" \
+			"${version_f} (patches ${patches_ver})" \
 			"${app_name} ${args[rv_brand]} module" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 			"$base_template"
