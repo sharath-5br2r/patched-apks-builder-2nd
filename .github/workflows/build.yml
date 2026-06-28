@@ -15,7 +15,6 @@ on:
         default: "configs/config.toml"
         options:
           - "configs/config.toml"
-          - "configs/exp.toml"
           - "custom"
 
 concurrency:
@@ -70,10 +69,7 @@ jobs:
           KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
           NEXT_VER_CODE: ${{ steps.version.outputs.NEXT_VER_CODE }}
         run: |
-          if [[ "${{ steps.context.outputs.CONFIG_FILE }}" == "configs/exp.toml" ]]; then
-            bash -x ./scripts/get_morphe_experimental.sh
-            cat ./configs/exp.toml
-          fi
+          bash -x ./scripts/get_morphe_experimental.sh
           set -euo pipefail
           if [[ "${{ steps.context.outputs.CONFIG_FILE }}" == "custom" ]]; then
             mkdir build
