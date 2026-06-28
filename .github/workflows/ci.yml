@@ -18,6 +18,7 @@ jobs:
     outputs:
       trigger_stable: ${{ steps.effective_triggers.outputs.TRIGGER_STABLE }}
       trigger_prerelease: ${{ steps.effective_triggers.outputs.TRIGGER_PRERELEASE }}
+      trigger_latest: ${{ steps.effective_triggers.outputs.TRIGGER_LATEST }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -88,7 +89,7 @@ jobs:
 
   build:
     needs: check_patch
-    if: ${{ always()  && needs.check_patch.result == 'success' }}
+    if: ${{ always()  && needs.check_patch.result == 'success'  && needs.check_patch.outputs.trigger_latest == '1' }}
     uses: ./.github/workflows/build.yml
     with:
       config_file: "configs/config.toml"

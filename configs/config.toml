@@ -1,3 +1,6 @@
+parallel-jobs = 1
+patches-version = "latest"
+enable-module-update = true
 [x-piko]
 enabled = true 
 app-name = "x"
