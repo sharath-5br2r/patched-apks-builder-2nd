@@ -1,6 +1,6 @@
-Signed amazon-alexa-2.2.689582.0.apk
-Signed amazon-india-32.12.4.300.apk
-Patched discord-334.11 - Stable.apk with revenge-xposed
+Signed Amazon Alexa 2.2.689582.0
+Signed Amazon India 32.12.4.300
+Patched Discord 334.11 - Stable with revenge-xposed
 Patched Dolphin master-2606-13 with SDK 29
-Patched  Eden 629ebf1bde with com.tencent.ig package name
-Patched Winlator-Ludashi with com.vng.pubgmobile package name
+Patched  Eden 0c2894eabf with com.tencent.ig package name
+Patched Winlator-Ludashi v3.1.h with com.vng.pubgmobile package name
