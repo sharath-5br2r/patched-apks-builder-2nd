@@ -22,9 +22,9 @@
   "morphe": {
     "repo": "MorpheApp/morphe-patches",
     "stable": "v1.32.0",
-    "prerelease": "v1.33.0-dev.5",
+    "prerelease": "v1.33.0-dev.7",
     "blocked": false,
-    "latest": "v1.33.0-dev.5"
+    "latest": "v1.33.0-dev.7"
   },
   "piko": {
     "repo": "crimera/piko",
@@ -135,10 +135,10 @@
   },
   "hoomans": {
     "repo": "arandomhooman/hoomans-morphe-patches",
-    "stable": "v1.34.0",
+    "stable": "v1.34.1",
     "prerelease": "v1.19.0",
     "blocked": false,
-    "latest": "v1.34.0"
+    "latest": "v1.34.1"
   },
   "rushiranpise": {
     "repo": "rushiranpise/morphe-patches",
