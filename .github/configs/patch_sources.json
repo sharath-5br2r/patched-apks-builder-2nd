@@ -135,10 +135,10 @@
   },
   "hoomans": {
     "repo": "arandomhooman/hoomans-morphe-patches",
-    "stable": "v1.36.0",
+    "stable": "v1.37.0",
     "prerelease": "v1.19.0",
     "blocked": false,
-    "latest": "v1.36.0"
+    "latest": "v1.37.0"
   },
   "rushiranpise": {
     "repo": "rushiranpise/morphe-patches",
